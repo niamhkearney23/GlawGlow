@@ -1,116 +1,125 @@
-// ============================================
+// ============================================================
 // CONTENT CONFIGURATION
-// Edit this file to update all site content
-// ============================================
+// Edit this one file to update everything on the site:
+// copy, prices, hours, socials, the booking link, and which
+// local images each section points to.
+//
+// IMAGES: drop your photos into  /public/images  using the
+// exact file names referenced below (e.g. hero.jpg). Until a
+// file exists, an intentional cocoa→bronze placeholder shows.
+// ============================================================
+
+// The ONE booking link the whole site uses (nav, hero, services, booking band).
+export const BOOKING_URL = "https://instagram.com/glamnglow.studio";
 
 export const siteConfig = {
   name: "Glam & Glow Studio",
-  tagline: "Look Good, Feel Good.",
-  founder: "Elissa Colafella",
-  location: "Melbourne, Eastern Suburbs",
+  location: "Melbourne Eastern Suburbs",
   instagram: "@glamnglow.studio",
   instagramUrl: "https://instagram.com/glamnglow.studio",
-  bookingMethod: "instagram", // "instagram" | "fresha" | "square" — change here to swap booking links
+  bookingUrl: BOOKING_URL,
+  logo: "/images/logo.png",
 
-  hero: {
-    headline: "Look Good, Feel Good.",
-    subheadline: "Luxury spray tanning and lash & brow services in Melbourne's eastern suburbs",
-    ctaPrimary: "Book an Appointment",
-    ctaSecondary: "View Services",
-    backgroundImage: "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&h=600&fit=crop", // PLACEHOLDER
+  nav: {
+    links: [
+      { label: "Services", href: "#services" },
+      { label: "Studio", href: "#studio" },
+      { label: "Gallery", href: "#gallery" },
+      { label: "Reviews", href: "#reviews" },
+    ],
+    cta: "Follow on IG",
   },
 
-  services: [
-    {
-      id: "spray-tanning",
-      title: "Spray Tanning",
-      description: "Professional spray tanning with premium solutions. Express application (15-20 mins) with a custom shade matched to your skin tone.",
-      features: ["Custom shade matching", "Express service", "Prep & aftercare guidance", "Long-lasting glow"],
-      priceRange: "$45–$75",
-      image: "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=500&h=500&fit=crop", // PLACEHOLDER
-    },
-    {
-      id: "lash-brow",
-      title: "Lash & Brow",
-      description: "Expert lash lifts, brow lamination, and precision tinting. Enhance your natural beauty with personalised styling.",
-      features: ["Lash lifts & tints", "Brow lamination", "Precision shaping", "Long-lasting results"],
-      priceRange: "$60–$120",
-      image: "https://images.unsplash.com/photo-1570157335907-97b5ebb0d32d?w=500&h=500&fit=crop", // PLACEHOLDER
-    },
-  ],
+  hero: {
+    eyebrow: "Melbourne Eastern Suburbs",
+    headline: "Your warmest glow,\nby hand.",
+    scriptAccent: "let's glow, babe",
+    cta: "Book a Tan",
+    image: "/images/hero.jpg",
+    imageLabel: "Glam & Glow — Hero",
+  },
 
-  whyUs: [
-    {
-      icon: "✨",
-      title: "Premium Experience",
-      description: "Luxe-but-approachable. We create an intimate, welcoming studio space where you feel pampered.",
-    },
-    {
-      icon: "👩‍💼",
-      title: "Personalised by Elissa",
-      description: "Expert care from someone who knows beauty. Every appointment is tailored to you.",
-    },
-    {
-      icon: "📍",
-      title: "Eastern Suburbs Convenience",
-      description: "Easy-to-find location in Melbourne's most desirable area. Your glow-up, locally.",
-    },
-  ],
+  // Large auto-scrolling band between hero and services.
+  marquee: ["Look Good", "Feel Good", "Glam & Glow"],
 
-  gallery: [
-    {
-      id: 1,
-      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=400&fit=crop", // PLACEHOLDER
-      alt: "Before and after spray tan results",
-      category: "Spray Tanning",
-    },
-    {
-      id: 2,
-      image: "https://images.unsplash.com/photo-1570157335907-97b5ebb0d32d?w=400&h=400&fit=crop", // PLACEHOLDER
-      alt: "Lash lift and tint results",
-      category: "Lash & Brow",
-    },
-    {
-      id: 3,
-      image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=400&h=400&fit=crop", // PLACEHOLDER
-      alt: "Brow lamination results",
-      category: "Lash & Brow",
-    },
-    {
-      id: 4,
-      image: "https://images.unsplash.com/photo-1560066169-b763a5585b45?w=400&h=400&fit=crop", // PLACEHOLDER
-      alt: "Client spray tan results",
-      category: "Spray Tanning",
-    },
-    {
-      id: 5,
-      image: "https://images.unsplash.com/photo-1553183969-83ee3ef14236?w=400&h=400&fit=crop", // PLACEHOLDER
-      alt: "Lash and brow styling",
-      category: "Lash & Brow",
-    },
-    {
-      id: 6,
-      image: "https://images.unsplash.com/photo-1487412947a31-f19b2dce72b8?w=400&h=400&fit=crop", // PLACEHOLDER
-      alt: "Spray tan glow results",
-      category: "Spray Tanning",
-    },
-  ],
+  services: {
+    label: "The Menu",
+    heading: "Two ways to glow",
+    tiers: [
+      {
+        id: "spray-tanning",
+        label: "Spray Tanning",
+        blurb:
+          "Custom-blended, skin-matched spray tans applied by hand for a flawless, streak-free finish that fades like a dream.",
+        price: "from $45",
+        cta: "Book Now",
+      },
+      {
+        id: "lash-brow",
+        label: "Lash & Brow",
+        blurb:
+          "Lash lifts, brow laminations and precision tinting — subtle, lifted, and tailored to the shape of your face.",
+        price: "from $60",
+        cta: "Book Now",
+      },
+    ],
+  },
+
+  // Image + text "About your artist" row.
+  split: {
+    label: "Your Artist",
+    heading: "Personalised,\nstart to finish",
+    body:
+      "Every appointment is one-on-one in an intimate, unhurried studio. Your shade, your shape, your glow — read off your skin tone and styled just for you. No conveyor belt, no rushing. Just you, looked after.",
+    cta: "Meet your artist",
+    image: "/images/split.jpg",
+    imageLabel: "In the Studio",
+  },
+
+  gallery: {
+    label: "The Glow Diary",
+    heading: "Recent work",
+    items: [
+      { id: 1, image: "/images/gallery-1.jpg", caption: "Sun-kissed, custom shade" },
+      { id: 2, image: "/images/gallery-2.jpg", caption: "Lash lift & tint" },
+      { id: 3, image: "/images/gallery-3.jpg", caption: "Brow lamination" },
+      { id: 4, image: "/images/gallery-4.jpg", caption: "Bridal glow" },
+      { id: 5, image: "/images/gallery-5.jpg", caption: "Everyday bronze" },
+      { id: 6, image: "/images/gallery-6.jpg", caption: "Event-ready finish" },
+    ],
+  },
+
+  testimonials: {
+    label: "Kind Words",
+    items: [
+      {
+        quote: "The most natural tan I've ever had. Not orange, not patchy — just glowy.",
+        name: "Bella R.",
+      },
+      {
+        quote: "Felt so looked after. The studio is gorgeous and Elissa is an artist.",
+        name: "Sophie M.",
+      },
+      {
+        quote: "My lashes have never looked better. I won't go anywhere else now.",
+        name: "Tahlia K.",
+      },
+    ],
+  },
 
   booking: {
-    headline: "Ready to Glow?",
-    description: "Book your appointment now. Send us a DM to check availability and secure your slot.",
-    buttonText: "DM to Book",
-    buttonUrl: "https://instagram.com/glamnglow.studio",
+    label: "Bookings",
+    heading: "DM to Book",
+    subtext: "Slide into our DMs to check availability and lock in your glow.",
+    cta: "Message on Instagram",
   },
 
   footer: {
+    tagline: "Look Good, Feel Good.",
     hours: [
-      { day: "Tuesday–Friday", time: "10am–6pm" },
-      { day: "Saturday", time: "10am–4pm" },
-      { day: "Sunday–Monday", time: "Closed" },
+      { day: "Tue – Fri", time: "10am – 6pm" },
+      { day: "Saturday", time: "9am – 4pm" },
+      { day: "Sun – Mon", time: "By appointment" },
     ],
-    address: "Melbourne, Eastern Suburbs",
-    phone: "(03) 1234 5678", // PLACEHOLDER
-    email: "hello@glamglowstudio.com.au", // PLACEHOLDER
   },
 };

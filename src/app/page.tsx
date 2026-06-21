@@ -1,21 +1,25 @@
-import Navbar from '@/components/Navbar'
-import Hero from '@/components/Hero'
-import Services from '@/components/Services'
-import WhyUs from '@/components/WhyUs'
-import Gallery from '@/components/Gallery'
-import BookingCTA from '@/components/BookingCTA'
-import Footer from '@/components/Footer'
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
+import Services from "@/components/Services";
+import SplitRow from "@/components/SplitRow";
+import Gallery from "@/components/Gallery";
+import Testimonials from "@/components/Testimonials";
+import BookingCTA from "@/components/BookingCTA";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <Navbar />
       <Hero />
+      <Marquee />
       <Services />
-      <WhyUs />
+      <SplitRow />
       <Gallery />
+      <Testimonials />
       <BookingCTA />
       <Footer />
     </main>
-  )
+  );
 }

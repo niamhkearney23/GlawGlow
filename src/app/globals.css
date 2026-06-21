@@ -1,8 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Fonts — three-part system:
+   Fraunces (display serif), Mr Dafoe (script accent), Hanken Grotesk (body + labels) */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Mr+Dafoe&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --cocoa: #6B4636;
+  --latte: #C4A88E;
+  --cream: #F5EDE4;
+  --bronze: #B08254;
+  --espresso: #3A2A20;
+}
 
 * {
   margin: 0;
@@ -16,85 +26,88 @@ html {
 }
 
 body {
-  @apply bg-cream text-espresso font-sans;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply bg-cream text-espresso font-sans antialiased;
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  @apply font-serif;
+  @apply font-display;
 }
 
-h1 {
-  @apply text-5xl md:text-6xl font-bold leading-tight;
-}
-
-h2 {
-  @apply text-4xl md:text-5xl font-bold;
-}
-
-h3 {
-  @apply text-2xl md:text-3xl font-semibold;
-}
-
-/* Sections */
-section {
-  @apply py-20 md:py-32;
-}
-
-/* Buttons */
-.btn {
-  @apply px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold transition-all duration-300 ease-out;
-}
-
-.btn-primary {
-  @apply bg-cocoa text-cream hover:bg-espresso shadow-luxury hover:shadow-luxury-lg;
-}
-
-.btn-secondary {
-  @apply bg-transparent border-2 border-cocoa text-cocoa hover:bg-cocoa hover:text-cream;
-}
-
-.btn-tertiary {
-  @apply bg-bronze text-cream hover:bg-cocoa shadow-luxury hover:shadow-luxury-lg;
-}
-
-/* Section labels */
+/* Section labels — uppercase, wide letter-spacing */
 .section-label {
-  @apply text-xs md:text-sm font-semibold tracking-widest uppercase text-cocoa;
-  letter-spacing: 0.15em;
+  @apply font-sans text-xs font-medium uppercase text-bronze;
+  letter-spacing: 0.25em;
+}
+
+/* Script accent — boutique signature */
+.script-accent {
+  @apply font-script text-bronze;
+  line-height: 1;
 }
 
 /* Container */
 .container {
-  @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+  @apply max-w-7xl mx-auto px-5 md:px-8 lg:px-10;
 }
 
-/* Smooth images */
-img {
-  @apply transition-transform duration-300;
+/* Pills / buttons */
+.pill {
+  @apply inline-flex items-center justify-center gap-2 rounded-full font-sans font-medium
+         transition-all duration-300 ease-out;
+  letter-spacing: 0.08em;
+}
+.pill-bronze {
+  @apply pill bg-bronze text-cream px-7 py-3.5 hover:bg-cocoa shadow-warm;
+}
+.pill-outline-cream {
+  @apply pill border border-cream/70 text-cream px-7 py-3.5 hover:bg-cream hover:text-cocoa;
+}
+.pill-outline-cocoa {
+  @apply pill border border-cocoa/40 text-cocoa px-6 py-2.5 hover:bg-cocoa hover:text-cream;
 }
 
-/* Focus states for accessibility */
+/* Intentional image placeholder — cocoa→bronze gradient with cream label.
+   Used until a real photo is dropped into /public/images. */
+.img-placeholder {
+  @apply flex items-center justify-center text-center;
+  background: linear-gradient(135deg, var(--cocoa) 0%, var(--bronze) 100%);
+}
+.img-placeholder span {
+  @apply font-sans text-cream/90 uppercase text-[11px] md:text-xs px-4;
+  letter-spacing: 0.3em;
+}
+
+/* Ken Burns wrapper keeps overflow hidden */
+.kenburns-frame {
+  overflow: hidden;
+}
+
+/* Marquee track — duplicated content, translateX -50% loops seamlessly */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-kenburns {
+    animation: none !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Focus states */
 a:focus-visible,
 button:focus-visible {
-  @apply outline-2 outline-offset-2 outline-cocoa;
+  outline: 2px solid var(--bronze);
+  outline-offset: 3px;
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-cream;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-latte rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-bronze;
-}
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { @apply bg-cream; }
+::-webkit-scrollbar-thumb { @apply bg-latte rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-bronze; }

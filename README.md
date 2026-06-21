@@ -1,270 +1,57 @@
-# Glam & Glow Studio Website
+# Glam & Glow Studio
 
-A premium, cinematic one-page marketing website for Glam & Glow Studio — spray tanning and lash/brow services in Melbourne's eastern suburbs.
+A warm, intimate, boutique one-page site for **Glam & Glow Studio** — spray tanning
+and lash/brow services in Melbourne's eastern suburbs. Editorial design, built to be
+filmed for Instagram (scroll-reveal motion, slow Ken Burns hero, scrolling marquee).
 
-## 🎬 Features
+## What's on the page
 
-- **Cinematic Design**: Scroll-triggered animations optimized for Instagram screen recording
-- **Framer Motion Animations**: Smooth, beat-friendly motion throughout
-- **Mobile-First**: Responsive design that looks stunning on all devices
-- **Dark Mode Ready**: Warm, luxury color palette (cocoa, latte, cream, bronze)
-- **Content Configuration**: All text, prices, images, hours in a single `content.ts` file
-- **Accessible**: Semantic HTML, focus states, ARIA labels
-- **Performance**: Next.js 14 App Router, Tailwind CSS, optimized images
+Hero (full-screen) → scrolling marquee → Services (two tiers) → Studio split row →
+Gallery → Testimonials → "DM to Book" band → Footer.
 
-## 🛠️ Tech Stack
+## Design system
 
-- **Next.js 14** (App Router)
-- **React 18**
-- **Tailwind CSS**
-- **Framer Motion** (animations)
-- **TypeScript**
-- **Vercel Deploy** (ready-to-go)
+- **Palette:** cocoa `#6B4636`, latte `#C4A88E`, cream `#F5EDE4`, bronze `#B08254`, espresso `#3A2A20`
+- **Fonts:** Fraunces (display serif) · Mr Dafoe (script accent) · Hanken Grotesk (body & labels)
+- **Icons:** thin-stroke [Lucide](https://lucide.dev) in bronze — no emoji
+- **Images:** local only, from `/public/images` (see that folder's README)
 
-## 📁 Project Structure
+## Edit the content
 
-```
-glamglow-studio/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx          # Root layout
-│   │   ├── page.tsx            # Main page
-│   │   └── globals.css         # Global styles
-│   ├── components/
-│   │   ├── Navbar.tsx          # Sticky navbar
-│   │   ├── Hero.tsx            # Hero section
-│   │   ├── Services.tsx        # Services cards
-│   │   ├── WhyUs.tsx           # Why Us section
-│   │   ├── Gallery.tsx         # Before/after gallery
-│   │   ├── BookingCTA.tsx      # Booking call-to-action
-│   │   └── Footer.tsx          # Footer
-│   └── config/
-│       └── content.ts          # ✏️ EDITABLE: All content
-├── tailwind.config.ts          # Tailwind config (brand colors)
-├── tsconfig.json               # TypeScript config
-├── next.config.js              # Next.js config
-├── postcss.config.js           # PostCSS config
-├── package.json                # Dependencies
-└── README.md                   # This file
+**Everything editable lives in one file: [`src/config/content.ts`](src/config/content.ts)** —
+copy, prices, hours, socials, testimonials, and image paths.
+
+The booking link is a single variable at the top of that file:
+
+```ts
+export const BOOKING_URL = "https://instagram.com/glamnglow.studio";
 ```
 
-## 🚀 Quick Start
+Change it once and every button on the site (nav, hero, services, booking band) updates.
 
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+## Add your photos
 
-### Installation
+See [`public/images/README.md`](public/images/README.md). Drop files in with the exact
+names listed there; until then each spot shows a branded placeholder, never a broken image.
 
-1. **Clone or download** this project
+## Run locally
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Run development server**:
-   ```bash
-   npm run dev
-   ```
-   
-   Visit `http://localhost:3000` — site is live!
-
-4. **Edit content** in `src/config/content.ts`:
-   - Service descriptions, prices
-   - Gallery images (swap Unsplash URLs)
-   - Hours, location, contact
-   - Booking link (currently Instagram DM)
-
-5. **Customize brand colors** in `tailwind.config.ts`:
-   - `cocoa: '#6B4636'`
-   - `latte: '#C4A88E'`
-   - `cream: '#F5EDE4'`
-   - `bronze: '#B08254'`
-
-## 📝 Content Editing
-
-All editable content lives in **`src/config/content.ts`**:
-
-```typescript
-// Example: Change button text
-booking: {
-  headline: "Ready to Glow?",
-  description: "Book your appointment...",
-  buttonText: "DM to Book",      // ← Edit here
-  buttonUrl: "https://instagram.com/glamnglow.studio",
-}
-
-// Example: Update services
-services: [
-  {
-    title: "Spray Tanning",
-    description: "...",
-    priceRange: "$45–$75",         // ← Edit here
-  },
-  ...
-]
-```
-
-### Placeholder Images
-All gallery and service images are from Unsplash (placeholders). Replace with real images:
-1. Upload images to a CDN (Vercel, Cloudinary, AWS S3)
-2. Update image URLs in `content.ts`
-
-Example:
-```typescript
-gallery: [
-  {
-    image: "https://images.unsplash.com/...",  // Replace this URL
-    alt: "Before and after spray tan",
-  },
-  ...
-]
-```
-
-## 🎨 Customization
-
-### Change Booking Method
-Currently set to Instagram DM. To swap to Fresha or Square:
-
-1. Open `src/config/content.ts`
-2. Update `bookingMethod`:
-   ```typescript
-   bookingMethod: "fresha", // "instagram" | "fresha" | "square"
-   ```
-3. Update `booking.buttonUrl`:
-   ```typescript
-   booking: {
-     buttonUrl: "https://fresha.com/your-booking-link", // Fresha link
-   }
-   ```
-
-### Adjust Colors
-Edit `tailwind.config.ts`:
-```typescript
-colors: {
-  cocoa: '#6B4636',      // Primary brown
-  latte: '#C4A88E',      // Secondary tan
-  cream: '#F5EDE4',      // Background
-  bronze: '#B08254',     // Accent/buttons
-  espresso: '#3A2A20',   // Text
-},
-```
-
-### Modify Animations
-Edit component `variants` in each section (e.g., `Hero.tsx`, `Services.tsx`):
-```typescript
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 }, // Adjust stagger timing
-  },
-}
-```
-
-## 📱 Mobile Optimization
-
-The site is **mobile-first** and optimized for Instagram screen recording:
-- Hero section is fully visible without scrolling (key for video)
-- Touch-friendly buttons and links
-- Responsive typography (scales with viewport)
-- Smooth scrolling behavior
-
-**Test on mobile**: Use Chrome DevTools mobile emulation or real device.
-
-## ♿ Accessibility
-
-- Semantic HTML (`<section>`, `<nav>`, `<main>`)
-- ARIA labels on buttons and icons
-- Focus states (keyboard navigation)
-- Alt text on all images
-- Color contrast meets WCAG AA standards
-- Mobile keyboard support
-
-## 🚀 Deployment on Vercel
-
-### Option 1: Quick Deploy (Recommended)
-1. **Push to GitHub**:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/YOUR_USERNAME/glamglow-studio.git
-   git push -u origin main
-   ```
-
-2. **Connect to Vercel**:
-   - Go to https://vercel.com
-   - Click "New Project"
-   - Import your GitHub repository
-   - Click "Deploy"
-   - **Done!** Your site is live at `glamglow-studio.vercel.app`
-
-### Option 2: Vercel CLI
 ```bash
-npm i -g vercel
-vercel
+npm install
+npm run dev          # http://localhost:3000
 ```
 
-### Option 3: Manual Deploy
-1. Build: `npm run build`
-2. Upload the `.next` folder to your hosting
-3. Set environment to Node.js
+## Deploy on Vercel
 
-## 📊 Performance
+This repo is already connected to Vercel. Any push to the `main` branch redeploys
+automatically. For a fresh project:
 
-- **Lighthouse**: 90+ (Performance, Accessibility, Best Practices, SEO)
-- **Core Web Vitals**: All green
-- **Mobile**: Optimized with responsive images
-- **Load Time**: < 2s on 4G
+1. Push the repo to GitHub.
+2. On [vercel.com](https://vercel.com) → **New Project** → import the repo.
+3. **Framework Preset must be `Next.js`** (this is the one setting that matters — do
+   not add a custom `vercel.json` output directory).
+4. Click **Deploy**.
 
-To test locally:
-```bash
-npm run build
-npm run start
-```
+## Tech
 
-## 🎬 Instagram Screen Recording Tips
-
-The site is designed to look great when screen-recorded:
-
-1. **Hero Shot**: Logo badge fades in, headline appears—perfect first frame
-2. **Scroll Rhythm**: Each section animates as you scroll—sync to music/beats
-3. **Mobile View**: Record in portrait mode on a phone (9:16 aspect ratio)
-4. **Smooth Scrolling**: Use slow, steady scroll for silky-smooth video
-5. **Share**: Record on your phone, edit in CapCut, post to Instagram Reels
-
-## 🔧 Troubleshooting
-
-**Images not loading?**
-- Check image URLs are publicly accessible
-- Verify next.config.js has correct remote patterns
-- Clear `.next` cache: `rm -rf .next`
-
-**Styles not applying?**
-- Rebuild: `npm run build`
-- Clear cache: `rm -rf node_modules/.cache`
-
-**Site won't start?**
-- Delete `node_modules` and `.next`: `rm -rf node_modules .next`
-- Reinstall: `npm install`
-- Restart: `npm run dev`
-
-## 📚 Resources
-
-- [Next.js Docs](https://nextjs.org/docs)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Vercel Deploy Docs](https://vercel.com/docs)
-
-## 📞 Support
-
-- Edit content in `src/config/content.ts`
-- Modify styles in `tailwind.config.ts`
-- Update animations in component files
-- Deploy to Vercel for free hosting
-
----
-
-Built with ✨ for Glam & Glow Studio. Look Good, Feel Good.
+Next.js 14 (App Router) · React 18 · TypeScript · Tailwind CSS · Framer Motion · Lucide.

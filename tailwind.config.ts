@@ -16,34 +16,34 @@ const config: Config = {
         espresso: '#3A2A20',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Cormorant Garamond', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        // Display serif for big headings
+        display: ['Fraunces', 'Cormorant Garamond', 'serif'],
+        // Script accent — boutique signature, short taglines only
+        script: ['"Mr Dafoe"', 'cursive'],
+        // Body + labels
+        sans: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
-        widest: '0.2em',
+        widest: '0.25em',
       },
       boxShadow: {
-        luxury: '0 4px 20px rgba(0, 0, 0, 0.08)',
-        'luxury-lg': '0 20px 40px rgba(0, 0, 0, 0.12)',
-      },
-      animation: {
-        fadeIn: 'fadeIn 0.8s ease-out',
-        slideUp: 'slideUp 0.8s ease-out',
-        scaleIn: 'scaleIn 0.6s ease-out',
+        luxury: '0 4px 20px rgba(58, 42, 32, 0.08)',
+        'luxury-lg': '0 24px 50px rgba(58, 42, 32, 0.18)',
+        warm: '0 18px 40px rgba(107, 70, 54, 0.22)',
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+        kenburns: {
+          '0%': { transform: 'scale(1) translate(0, 0)' },
+          '100%': { transform: 'scale(1.12) translate(-1.5%, -1.5%)' },
         },
-        slideUp: {
-          '0%': { transform: 'translateY(30px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
-        scaleIn: {
-          '0%': { transform: 'scale(0.9)', opacity: '0' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
-        },
+      },
+      animation: {
+        kenburns: 'kenburns 18s ease-out forwards',
+        marquee: 'marquee 30s linear infinite',
       },
     },
   },
