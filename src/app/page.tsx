@@ -4,6 +4,7 @@ import Marquee from "@/components/Marquee";
 import Services from "@/components/Services";
 import SplitRow from "@/components/SplitRow";
 import Gallery from "@/components/Gallery";
+import Care from "@/components/Care";
 import Testimonials from "@/components/Testimonials";
 import BookingCTA from "@/components/BookingCTA";
 import Footer from "@/components/Footer";
@@ -17,6 +18,7 @@ export default function Home() {
       <Services />
       <SplitRow />
       <Gallery />
+      <Care />
       <Testimonials />
       <BookingCTA />
       <Footer />

@@ -88,6 +88,36 @@ export const siteConfig = {
     ],
   },
 
+  // Prep & aftercare guidance, distilled into scannable tips.
+  care: {
+    label: "Prep & Aftercare",
+    heading: "Get the most\nfrom your glow",
+    note: "Dry skin drinks up solution (deeper, faster-fading) — moisturise in the days before. Oily skin develops slower — cleanse well beforehand.",
+    columns: [
+      {
+        title: "Before your tan",
+        tips: [
+          "Exfoliate the day before — elbows, knees & ankles",
+          "Skip moisturiser, lotion & makeup on the day",
+          "Arrive with clean, product-free skin",
+          "Wear loose, dark clothing & thongs or sandals",
+          "Hair tied back, no jewellery or perfume",
+        ],
+      },
+      {
+        title: "After your tan",
+        tips: [
+          "Stay dry — no water or sweat for 6–8 hours",
+          "Wait 8–10 hours to shower; lukewarm, no scrubbing",
+          "Loose dark clothing, no tight underwear",
+          "Avoid harsh soaps, exfoliants & body washes",
+          "Moisturise daily to keep the glow",
+          "Skip chlorine, hot tubs & heavy sweating",
+        ],
+      },
+    ],
+  },
+
   testimonials: {
     label: "Kind Words",
     items: [
