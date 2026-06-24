@@ -36,7 +36,7 @@ export const siteConfig = {
     scriptAccent: "let's glow, babe",
     cta: "Book a Tan",
     image: "/images/hero.jpg",
-    imageLabel: "Glam & Glow — Hero",
+    imageLabel: "", // blank — the headline sits on top, so the hero placeholder stays a clean gradient
   },
 
   // Large auto-scrolling band between hero and services.

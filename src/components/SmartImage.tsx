@@ -56,7 +56,7 @@ export default function SmartImage({
         />
       ) : (
         <div className="img-placeholder h-full w-full">
-          <span>{label}</span>
+          {label ? <span>{label}</span> : null}
         </div>
       )}
     </div>
