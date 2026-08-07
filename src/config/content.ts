@@ -80,11 +80,10 @@ export const siteConfig = {
     label: "The Glow Diary",
     heading: "Recent work",
     items: [
-      { id: 1, image: "/images/gallery-1.jpg", caption: "Brow wax" },
-      { id: 2, image: "/images/gallery-2.jpg", caption: "Brow shape, wax & tint" },
-      { id: 3, image: "/images/gallery-3.jpg", caption: "Lash lift, tint & brow lamination" },
-      { id: 4, image: "/images/gallery-4.jpg", caption: "Spray tan glow" },
-      { id: 5, image: "/images/gallery-5.jpg", caption: "Sun-kissed spray tan" },
+      { id: 1, image: "/images/gallery-1.jpg", caption: "Brow shape, wax & tint" },
+      { id: 2, image: "/images/gallery-2.jpg", caption: "Spray tan glow" },
+      { id: 3, image: "/images/gallery-3.jpg", caption: "Lash lift & tint" },
+      { id: 4, image: "/images/gallery-4.jpg", caption: "Brow lamination" },
     ],
   },
 

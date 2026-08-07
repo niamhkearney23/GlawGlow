@@ -1,3 +1,4 @@
+import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
@@ -12,6 +13,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
+      <Intro />
       <Navbar />
       <Hero />
       <Marquee />
