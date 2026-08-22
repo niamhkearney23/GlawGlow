@@ -29,9 +29,9 @@ export default function Hero() {
       {/* photo */}
       <motion.div
         className="order-1 h-[55vh] md:order-2 md:h-auto md:pt-[73px]"
-        initial={{ opacity: 0, scale: 1.04 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ clipPath: "inset(0 0 100% 0)", scale: 1.06 }}
+        animate={{ clipPath: "inset(0 0 0% 0)", scale: 1 }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
       >
         <SmartImage src={hero.image} label="Hero" alt={siteConfig.name} className="h-full w-full" />
       </motion.div>

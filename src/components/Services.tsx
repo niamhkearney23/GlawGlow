@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/content";
-import Reveal from "./Reveal";
+import Reveal, { Stagger, StaggerItem } from "./Reveal";
 
 export default function Services() {
   const { services } = siteConfig;
@@ -15,18 +15,18 @@ export default function Services() {
           {services.groups.map((g, gi) => (
             <Reveal key={g.title} delay={gi * 0.1}>
               <h3 className="border-b border-espresso/20 pb-4 font-display text-3xl text-espresso">{g.title}</h3>
-              <ul>
+              <Stagger className="block" gap={0.1}>
                 {g.items.map((it) => (
-                  <li key={it.name} className="flex items-start justify-between gap-6 border-b border-espresso/10 py-6">
+                  <StaggerItem as="div" key={it.name} className="flex items-start justify-between gap-6 border-b border-espresso/10 py-6">
                     <div>
                       <p className="font-sans text-base font-semibold text-espresso">{it.name}</p>
                       <p className="mt-1 max-w-sm font-sans text-sm leading-relaxed text-espresso/60">{it.desc}</p>
                       <p className="label mt-2 text-espresso/40">{it.time}</p>
                     </div>
                     <p className="shrink-0 font-display text-2xl text-bronze">{it.price}</p>
-                  </li>
+                  </StaggerItem>
                 ))}
-              </ul>
+              </Stagger>
             </Reveal>
           ))}
         </div>

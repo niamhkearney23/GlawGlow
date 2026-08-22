@@ -17,7 +17,7 @@ export default function Gallery() {
         </Reveal>
         <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
           {gallery.items.map((it, i) => (
-            <Reveal key={it.id} delay={(i % 3) * 0.08} as="figure">
+            <Reveal key={it.id} delay={(i % 3) * 0.12} as="figure" variant="wipe">
               <div className="group relative aspect-[4/5] overflow-hidden">
                 <SmartImage src={it.image} label={it.caption} alt={it.caption} className="h-full w-full" imgClassName="transition-transform duration-[1200ms] ease-out group-hover:scale-105" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-espresso/70 to-transparent p-5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">

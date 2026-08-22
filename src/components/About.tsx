@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { siteConfig } from "@/config/content";
-import Reveal from "./Reveal";
+import Reveal, { Parallax } from "./Reveal";
 import SmartImage from "./SmartImage";
 
 export default function About() {
@@ -8,8 +8,10 @@ export default function About() {
   return (
     <section id="about" className="bg-sand">
       <div className="grid md:grid-cols-2">
-        <Reveal className="min-h-[60vh] md:min-h-[85vh]">
-          <SmartImage src={about.image} label="Elissa" alt="Elissa, Glam & Glow Studio" className="h-full w-full" />
+        <Reveal variant="wipe" className="min-h-[60vh] md:min-h-[85vh]">
+          <Parallax className="h-full min-h-[60vh] md:min-h-[85vh]">
+            <SmartImage src={about.image} label="Elissa" alt="Elissa, Glam & Glow Studio" className="h-full w-full" />
+          </Parallax>
         </Reveal>
         <Reveal delay={0.1} className="flex flex-col justify-center px-6 py-16 md:px-12 md:py-24 lg:px-20">
           <p className="label">{about.label}</p>

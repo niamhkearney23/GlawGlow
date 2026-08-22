@@ -30,7 +30,7 @@ export default function Intro() {
           <div className="overflow-hidden px-4 py-2">
             <motion.div
               layoutId="gg-brand"
-              className="text-4xl sm:text-5xl md:text-6xl"
+              className="text-3xl sm:text-4xl md:text-5xl"
               initial={{ y: "110%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}

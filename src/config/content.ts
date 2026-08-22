@@ -13,7 +13,7 @@ export const BOOKING_EMBED_URL = "";
 export const siteConfig = {
   name: "Glam & Glow Studio",
   shortName: "Glam & Glow",
-  location: "Melbourne, Eastern Suburbs",
+  location: "Blackburn, Melbourne",
   instagram: "@glamnglow.studio",
   instagramUrl: "https://instagram.com/glamnglow.studio",
   bookingUrl: BOOKING_URL,
@@ -30,15 +30,15 @@ export const siteConfig = {
   },
 
   hero: {
-    eyebrow: "Spray Tanning · Lashes · Brows",
+    eyebrow: "Spray Tanning · Lashes · Brows · Waxing",
     headline: "Bronzed. Lifted.\nPolished.",
-    sub: "Professional spray tanning, lash lifts and brow styling in a private studio in Melbourne's eastern suburbs.",
+    sub: "Professional spray tanning, lash lifts and brow styling by a qualified beauty therapist, in a private home studio in Blackburn, Melbourne.",
     cta: "Book an appointment",
     ctaSecondary: "View services",
     image: "/images/hero.jpg",
   },
 
-  ticker: ["Spray Tanning", "Lash Lift & Tint", "Brow Shaping", "Brow Lamination", "Melbourne Eastern Suburbs"],
+  ticker: ["Spray Tanning", "Lash Lift & Tint", "Brow Shaping", "Brow Lamination", "Waxing", "Blackburn, Melbourne"],
 
   services: {
     label: "Services",
@@ -68,8 +68,8 @@ export const siteConfig = {
     label: "About",
     heading: "A private studio,\nrun by your artist",
     body:
-      "Glam & Glow is owned and run by Elissa, a qualified tanning and lash technician. Appointments are one client at a time in a calm, private studio — no waiting rooms, no rushing. Every tan is colour-matched to your skin tone and every brow is shaped to your face.",
-    points: ["Qualified & insured", "Premium, vegan solutions", "Private one-on-one studio", "Easy parking, Eastern Suburbs"],
+      "Glam & Glow is owned and run by Elissa Colafella, a qualified beauty therapist. Appointments are one client at a time in a calm, private studio — no waiting rooms, no rushing. Every tan is colour-matched to your skin tone and every brow is shaped to your face.",
+    points: ["Qualified beauty therapist", "Premium, vegan tanning solutions", "Private one-on-one home studio", "Blackburn, easy parking"],
     cta: "Book an appointment",
     image: "/images/split.jpg",
   },

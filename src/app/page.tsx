@@ -1,5 +1,6 @@
 import MotionShell from "@/components/MotionShell";
 import Intro from "@/components/Intro";
+import ScrollProgress from "@/components/ScrollProgress";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Ticker from "@/components/Ticker";
@@ -16,6 +17,7 @@ export default function Home() {
     <MotionShell>
       <main className="overflow-x-hidden">
         <Intro />
+        <ScrollProgress />
         <Navbar />
         <Hero />
         <Ticker />
