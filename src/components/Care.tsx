@@ -4,48 +4,33 @@ import Reveal from "./Reveal";
 
 export default function Care() {
   const { care } = siteConfig;
-
   return (
-    <section id="care" className="bg-latte py-24 md:py-36">
-      <div className="container">
+    <section id="care" className="relative overflow-hidden bg-peach/40 py-24 md:py-32">
+      <div className="blob right-0 top-10 h-72 w-72 bg-blush" />
+      <div className="container relative">
         <Reveal className="text-center">
-          <p className="section-label text-cocoa">{care.label}</p>
-          <h2 className="mt-4 font-display text-4xl leading-tight text-espresso md:text-5xl">
-            {care.heading.split("\n").map((line, i) => (
-              <span key={i} className="block">
-                {line}
-              </span>
-            ))}
-          </h2>
+          <p className="section-label">{care.label}</p>
+          <h2 className="mt-3 font-display text-4xl text-cocoa md:text-6xl">{care.heading}</h2>
         </Reveal>
-
-        <div className="mx-auto mt-14 grid max-w-4xl gap-12 md:grid-cols-2 md:gap-16">
-          {care.columns.map((col, i) => (
-            <Reveal key={col.title} delay={i * 0.12}>
-              <p className="section-label text-cocoa">{col.title}</p>
-              <ul className="mt-6 space-y-4">
-                {col.tips.map((tip, j) => (
-                  <li key={j} className="flex items-start gap-3">
-                    <Check
-                      size={18}
-                      strokeWidth={1.5}
-                      className="mt-0.5 shrink-0 text-bronze"
-                    />
-                    <span className="font-sans text-base leading-snug text-espresso/85">
-                      {tip}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+        <div className="mx-auto mt-12 grid max-w-3xl gap-6 md:grid-cols-2">
+          {care.columns.map((c, i) => (
+            <Reveal key={c.title} delay={i * 0.1}>
+              <div className="h-full rounded-3xl bg-cream p-7 shadow-soft">
+                <p className="font-display text-2xl italic text-bronze">{c.title}</p>
+                <ul className="mt-5 space-y-3">
+                  {c.tips.map((t, j) => (
+                    <li key={j} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blush">
+                        <Check size={12} strokeWidth={2.2} className="text-bronze" />
+                      </span>
+                      <span className="font-sans text-sm leading-snug text-espresso/85">{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={0.2} className="mx-auto mt-14 max-w-2xl text-center">
-          <p className="font-sans text-sm leading-relaxed text-espresso/70">
-            {care.note}
-          </p>
-        </Reveal>
       </div>
     </section>
   );

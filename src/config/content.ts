@@ -1,15 +1,8 @@
 // ============================================================
-// CONTENT CONFIGURATION
-// Edit this one file to update everything on the site:
-// copy, prices, hours, socials, the booking link, and which
-// local images each section points to.
-//
-// IMAGES: drop your photos into  /public/images  using the
-// exact file names referenced below (e.g. hero.jpg). Until a
-// file exists, an intentional cocoa→bronze placeholder shows.
+// CONTENT — edit this one file to change everything on the site.
+// Photos live in /public/images (see the README in that folder).
 // ============================================================
 
-// The ONE booking link the whole site uses (nav, hero, services, booking band).
 export const BOOKING_URL = "https://instagram.com/glamnglow.studio";
 
 export const siteConfig = {
@@ -23,127 +16,125 @@ export const siteConfig = {
   nav: {
     links: [
       { label: "Services", href: "#services" },
-      { label: "Studio", href: "#studio" },
-      { label: "Gallery", href: "#gallery" },
-      { label: "Reviews", href: "#reviews" },
+      { label: "The Glow", href: "#gallery" },
+      { label: "Prep", href: "#care" },
+      { label: "Love", href: "#reviews" },
     ],
-    cta: "Follow on IG",
+    cta: "Book now",
   },
 
   hero: {
-    eyebrow: "Melbourne Eastern Suburbs",
-    headline: "Your warmest glow,\nby hand.",
+    eyebrow: "Spray tans · Lashes · Brows",
+    headline: "Glow like you\nmean it.",
     scriptAccent: "let's glow, babe",
-    cta: "Book a Tan",
-    image: "/images/hero.jpg",
-    imageLabel: "", // blank — the headline sits on top, so the hero placeholder stays a clean gradient
+    sub: "Custom spray tans, lifted lashes and perfect brows — in a cosy little studio in Melbourne's east.",
+    cta: "Book a tan",
+    ctaSecondary: "See the glow",
+    // three photos in the tilted stack
+    stack: [
+      { image: "/images/hero.jpg", label: "Glow" },
+      { image: "/images/gallery-2.jpg", label: "Lashes" },
+      { image: "/images/gallery-3.jpg", label: "Brows" },
+    ],
   },
 
-  // Large auto-scrolling band between hero and services.
-  marquee: ["Look Good", "Feel Good", "Glam & Glow"],
+  marquee: ["Look good", "Feel good", "Glam & Glow", "Book now"],
 
   services: {
     label: "The Menu",
-    heading: "Two ways to glow",
-    tiers: [
+    heading: "Pick your glow",
+    items: [
       {
-        id: "spray-tanning",
-        label: "Spray Tanning",
-        blurb:
-          "Custom-blended, skin-matched spray tans applied by hand for a flawless, streak-free finish that fades like a dream.",
+        id: "tan",
+        title: "Spray Tan",
+        blurb: "Hand-applied, colour-matched to you. Zero orange, zero streaks — just that fresh-off-holiday glow.",
         price: "from $45",
-        cta: "Book Now",
+        time: "20 min",
       },
       {
-        id: "lash-brow",
-        label: "Lash & Brow",
-        blurb:
-          "Lash lifts, brow laminations and precision tinting — subtle, lifted, and tailored to the shape of your face.",
+        id: "lash",
+        title: "Lash Lift & Tint",
+        blurb: "Your own lashes, lifted and darkened. Wake up looking like you've done your makeup.",
         price: "from $60",
-        cta: "Book Now",
+        time: "45 min",
+      },
+      {
+        id: "brow",
+        title: "Brows",
+        blurb: "Wax, shape, tint or lamination — fluffy, lifted, and shaped to your face.",
+        price: "from $25",
+        time: "30 min",
       },
     ],
   },
 
-  // Image + text "About your artist" row.
   split: {
-    label: "Your Artist",
-    heading: "Personalised,\nstart to finish",
+    label: "Hi, I'm Elissa",
+    heading: "Your glow,\ndone properly",
     body:
-      "Every appointment is one-on-one in an intimate, unhurried studio. Your shade, your shape, your glow — read off your skin tone and styled just for you. No conveyor belt, no rushing. Just you, looked after.",
-    cta: "Meet your artist",
+      "Glam & Glow is my little studio — one client at a time, no rushing, no conveyor belt. I match every tan to your skin tone and style every brow to your face. You'll leave glowing and feeling like yourself, just more.",
+    cta: "Come say hi",
     image: "/images/split.jpg",
-    imageLabel: "In the Studio",
+    imageLabel: "Elissa",
   },
 
   gallery: {
-    label: "The Glow Diary",
-    heading: "Recent work",
+    label: "On the 'gram",
+    heading: "Fresh glows",
     items: [
       { id: 1, image: "/images/gallery-1.jpg", caption: "Brow shape, wax & tint" },
       { id: 2, image: "/images/gallery-2.jpg", caption: "Spray tan glow" },
       { id: 3, image: "/images/gallery-3.jpg", caption: "Lash lift & tint" },
       { id: 4, image: "/images/gallery-4.jpg", caption: "Brow lamination" },
+      { id: 5, image: "/images/hero.jpg", caption: "Sun-kissed" },
+      { id: 6, image: "/images/split.jpg", caption: "Studio days" },
     ],
+    cta: "Follow for more",
   },
 
-  // Prep & aftercare guidance, distilled into scannable tips.
   care: {
     label: "Prep & Aftercare",
-    heading: "Get the most\nfrom your glow",
-    note: "Dry skin drinks up solution (deeper, faster-fading) — moisturise in the days before. Oily skin develops slower — cleanse well beforehand.",
+    heading: "Make it last",
     columns: [
       {
-        title: "Before your tan",
+        title: "Before",
         tips: [
-          "Exfoliate the day before — elbows, knees & ankles",
-          "Skip moisturiser, lotion & makeup on the day",
-          "Arrive with clean, product-free skin",
-          "Wear loose, dark clothing & thongs or sandals",
-          "Hair tied back, no jewellery or perfume",
+          "Exfoliate the day before",
+          "No moisturiser or makeup on the day",
+          "Loose dark clothes + thongs",
+          "Hair up, no jewellery or perfume",
         ],
       },
       {
-        title: "After your tan",
+        title: "After",
         tips: [
-          "Stay dry — no water or sweat for 6–8 hours",
-          "Wait 8–10 hours to shower; lukewarm, no scrubbing",
-          "Loose dark clothing, no tight underwear",
-          "Avoid harsh soaps, exfoliants & body washes",
-          "Moisturise daily to keep the glow",
-          "Skip chlorine, hot tubs & heavy sweating",
+          "Stay dry 6–8 hours",
+          "First shower lukewarm, no scrubbing",
+          "Moisturise every day",
+          "Skip pools, hot tubs & sweaty workouts",
         ],
       },
     ],
   },
 
   testimonials: {
-    label: "Kind Words",
+    label: "Client love",
     items: [
-      {
-        quote: "The most natural tan I've ever had. Not orange, not patchy — just glowy.",
-        name: "Bella R.",
-      },
-      {
-        quote: "Felt so looked after. The studio is gorgeous and Elissa is an artist.",
-        name: "Sophie M.",
-      },
-      {
-        quote: "My lashes have never looked better. I won't go anywhere else now.",
-        name: "Tahlia K.",
-      },
+      { quote: "Most natural tan I've ever had. Not orange, not patchy — just glowy.", name: "Bella" },
+      { quote: "The studio is so cute and Elissa is an actual artist with brows.", name: "Sophie" },
+      { quote: "My lashes have never looked this good. Obsessed.", name: "Tahlia" },
     ],
   },
 
   booking: {
-    label: "Bookings",
-    heading: "DM to Book",
-    subtext: "Slide into our DMs to check availability and lock in your glow.",
+    label: "Ready?",
+    heading: "DM to book",
+    subtext: "Slide into the DMs and let's lock in your glow.",
     cta: "Message on Instagram",
   },
 
   footer: {
-    tagline: "Look Good, Feel Good.",
+    tagline: "Look good, feel good.",
     hours: [
       { day: "Tue – Fri", time: "10am – 6pm" },
       { day: "Saturday", time: "9am – 4pm" },

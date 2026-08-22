@@ -1,113 +1,94 @@
-/* Fonts — three-part system:
-   Fraunces (display serif), Mr Dafoe (script accent), Hanken Grotesk (body + labels) */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Mr+Dafoe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Mr+Dafoe&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  --cream: #FFF8F3;
+  --blush: #F9E4DC;
+  --peach: #F6CDB9;
+  --nude: #E9C5AE;
+  --bronze: #B8845A;
+  --gold: #D9A877;
   --cocoa: #6B4636;
-  --latte: #C4A88E;
-  --cream: #F5EDE4;
-  --bronze: #B08254;
   --espresso: #3A2A20;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
+html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   @apply bg-cream text-espresso font-sans antialiased;
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  @apply font-display;
-}
+h1, h2, h3, h4 { @apply font-display; }
 
-/* Section labels — uppercase, wide letter-spacing */
+/* Tiny uppercase labels */
 .section-label {
-  @apply font-sans text-xs font-medium uppercase text-bronze;
-  letter-spacing: 0.25em;
+  @apply font-sans text-[11px] md:text-xs font-semibold uppercase text-bronze;
+  letter-spacing: 0.28em;
 }
 
-/* Script accent — boutique signature */
+/* Script accent — the signature */
 .script-accent {
   @apply font-script text-bronze;
   line-height: 1;
 }
 
-/* Container */
-.container {
-  @apply max-w-7xl mx-auto px-5 md:px-8 lg:px-10;
-}
+.container { @apply max-w-7xl mx-auto px-5 md:px-8 lg:px-10; }
 
-/* Pills / buttons */
+/* Buttons */
 .pill {
-  @apply inline-flex items-center justify-center gap-2 rounded-full font-sans font-medium
+  @apply inline-flex items-center justify-center gap-2 rounded-full font-sans font-semibold
          transition-all duration-300 ease-out;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 .pill-bronze {
-  @apply pill bg-bronze text-cream px-7 py-3.5 hover:bg-cocoa shadow-warm;
+  @apply pill text-cream px-7 py-3.5 shadow-glow hover:-translate-y-0.5 hover:shadow-card;
+  background: linear-gradient(120deg, var(--bronze), var(--gold), var(--bronze));
+  background-size: 200% 200%;
+  animation: shimmer 6s linear infinite;
 }
-.pill-outline-cream {
-  @apply pill border border-cream/70 text-cream px-7 py-3.5 hover:bg-cream hover:text-cocoa;
+.pill-outline {
+  @apply pill border border-cocoa/30 text-cocoa px-6 py-3 hover:bg-cocoa hover:text-cream;
 }
-.pill-outline-cocoa {
-  @apply pill border border-cocoa/40 text-cocoa px-6 py-2.5 hover:bg-cocoa hover:text-cream;
+.pill-cream {
+  @apply pill bg-cream text-cocoa px-7 py-3.5 shadow-soft hover:-translate-y-0.5;
 }
 
-/* Intentional image placeholder — cocoa→bronze gradient with cream label.
-   Used until a real photo is dropped into /public/images. */
+/* Glow blobs behind sections */
+.blob {
+  @apply pointer-events-none absolute rounded-full blur-3xl;
+}
+
+/* Polaroid-style photo card */
+.polaroid {
+  @apply rounded-2xl bg-cream p-2 shadow-card;
+}
+.polaroid img { @apply rounded-xl; }
+
+/* Placeholder gradient (peach → bronze) until a real photo exists */
 .img-placeholder {
   @apply flex items-center justify-center text-center;
-  background: linear-gradient(135deg, var(--cocoa) 0%, var(--bronze) 100%);
+  background: linear-gradient(135deg, var(--peach) 0%, var(--bronze) 100%);
 }
 .img-placeholder span {
   @apply font-sans text-cream/90 uppercase text-[11px] md:text-xs px-4;
   letter-spacing: 0.3em;
 }
 
-/* Ken Burns wrapper keeps overflow hidden */
-.kenburns-frame {
-  overflow: hidden;
-}
+.marquee-track { display: flex; width: max-content; white-space: nowrap; }
 
-/* Marquee track — duplicated content, translateX -50% loops seamlessly */
-.marquee-track {
-  display: flex;
-  width: max-content;
-  white-space: nowrap;
-}
-
-/* Respect reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee,
-  .animate-kenburns {
-    animation: none !important;
-  }
+  .animate-marquee, .animate-float, .pill-bronze { animation: none !important; }
   html { scroll-behavior: auto; }
 }
 
-/* Focus states */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--bronze);
-  outline-offset: 3px;
-}
+a:focus-visible, button:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar { width: 9px; }
 ::-webkit-scrollbar-track { @apply bg-cream; }
-::-webkit-scrollbar-thumb { @apply bg-latte rounded-full; }
+::-webkit-scrollbar-thumb { @apply bg-nude rounded-full; }
 ::-webkit-scrollbar-thumb:hover { @apply bg-bronze; }

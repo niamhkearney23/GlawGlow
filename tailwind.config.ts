@@ -9,41 +9,43 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        cream: '#FFF8F3',
+        blush: '#F9E4DC',
+        peach: '#F6CDB9',
+        nude: '#E9C5AE',
+        bronze: '#B8845A',
+        gold: '#D9A877',
         cocoa: '#6B4636',
-        latte: '#C4A88E',
-        cream: '#F5EDE4',
-        bronze: '#B08254',
         espresso: '#3A2A20',
       },
       fontFamily: {
-        // Display serif for big headings
         display: ['Fraunces', 'Cormorant Garamond', 'serif'],
-        // Script accent — boutique signature, short taglines only
         script: ['"Mr Dafoe"', 'cursive'],
-        // Body + labels
         sans: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
       },
-      letterSpacing: {
-        widest: '0.25em',
-      },
       boxShadow: {
-        luxury: '0 4px 20px rgba(58, 42, 32, 0.08)',
-        'luxury-lg': '0 24px 50px rgba(58, 42, 32, 0.18)',
-        warm: '0 18px 40px rgba(107, 70, 54, 0.22)',
+        soft: '0 10px 30px rgba(107, 70, 54, 0.10)',
+        glow: '0 20px 60px rgba(184, 132, 90, 0.28)',
+        card: '0 18px 45px rgba(107, 70, 54, 0.16)',
       },
       keyframes: {
-        kenburns: {
-          '0%': { transform: 'scale(1) translate(0, 0)' },
-          '100%': { transform: 'scale(1.12) translate(-1.5%, -1.5%)' },
-        },
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '100%': { backgroundPosition: '200% 50%' },
+        },
       },
       animation: {
-        kenburns: 'kenburns 18s ease-out forwards',
-        marquee: 'marquee 30s linear infinite',
+        marquee: 'marquee 28s linear infinite',
+        float: 'float 6s ease-in-out infinite',
+        shimmer: 'shimmer 6s linear infinite',
       },
     },
   },

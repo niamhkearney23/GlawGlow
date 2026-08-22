@@ -1,39 +1,46 @@
+import { Instagram, Heart } from "lucide-react";
 import { siteConfig } from "@/config/content";
 import Reveal from "./Reveal";
 import SmartImage from "./SmartImage";
 
 export default function Gallery() {
-  const { gallery } = siteConfig;
-
+  const { gallery, instagram, instagramUrl } = siteConfig;
   return (
-    <section id="gallery" className="bg-cocoa py-24 md:py-36">
+    <section id="gallery" className="bg-cream py-24 md:py-32">
       <div className="container">
-        <Reveal className="text-center">
-          <p className="section-label text-bronze">{gallery.label}</p>
-          <h2 className="mt-4 font-display text-4xl text-cream md:text-5xl">
-            {gallery.heading}
-          </h2>
+        <Reveal className="flex flex-col items-center text-center">
+          <p className="section-label inline-flex items-center gap-2">
+            <Instagram size={14} strokeWidth={1.8} /> {gallery.label}
+          </p>
+          <h2 className="mt-3 font-display text-4xl text-cocoa md:text-6xl">{gallery.heading}</h2>
+          <p className="mt-2 font-sans text-sm text-cocoa/60">{instagram}</p>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {gallery.items.map((item, i) => (
-            <Reveal key={item.id} delay={(i % 3) * 0.1} as="figure">
-              <div className="group relative aspect-square overflow-hidden rounded-2xl shadow-luxury transition-shadow duration-500 hover:shadow-warm">
+        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
+          {gallery.items.map((it, i) => (
+            <Reveal key={it.id} delay={(i % 3) * 0.08} as="figure">
+              <div className="group relative aspect-square overflow-hidden rounded-2xl shadow-soft transition-shadow duration-500 hover:shadow-card">
                 <SmartImage
-                  src={item.image}
-                  label={item.caption}
-                  alt={item.caption}
+                  src={it.image}
+                  label={it.caption}
+                  alt={it.caption}
                   className="h-full w-full"
-                  imgClassName="transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                  imgClassName="transition-transform duration-[1100ms] ease-out group-hover:scale-110"
                 />
-                {/* Caption fades in OVER the image on hover */}
-                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-cocoa/80 via-cocoa/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  <p className="p-5 font-display text-lg text-cream">{item.caption}</p>
+                <div className="absolute inset-0 flex items-end justify-between bg-gradient-to-t from-cocoa/70 via-transparent to-transparent p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <p className="font-sans text-sm text-cream">{it.caption}</p>
+                  <Heart size={16} strokeWidth={1.8} className="text-cream" />
                 </div>
               </div>
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.2} className="mt-10 text-center">
+          <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="pill-outline">
+            <Instagram size={15} strokeWidth={1.8} /> {gallery.cta}
+          </a>
+        </Reveal>
       </div>
     </section>
   );
