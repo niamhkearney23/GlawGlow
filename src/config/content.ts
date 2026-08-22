@@ -5,6 +5,11 @@
 
 export const BOOKING_URL = "https://instagram.com/glamnglow.studio";
 
+// Online booking calendar. Create a free Calendly (calendly.com) or Fresha
+// (fresha.com) account, copy your booking page link, paste it here and a live
+// booking calendar appears on the site. Leave empty to use "DM to book".
+export const BOOKING_EMBED_URL = "";
+
 export const siteConfig = {
   name: "Glam & Glow Studio",
   location: "Melbourne Eastern Suburbs",
@@ -33,8 +38,8 @@ export const siteConfig = {
     // three photos in the tilted stack
     stack: [
       { image: "/images/hero.jpg", label: "Glow" },
-      { image: "/images/gallery-2.jpg", label: "Lashes" },
-      { image: "/images/gallery-3.jpg", label: "Brows" },
+      { image: "/images/gallery-3.jpg", label: "Lashes" },
+      { image: "/images/gallery-1.jpg", label: "Brows" },
     ],
   },
 
@@ -82,11 +87,11 @@ export const siteConfig = {
     label: "On the 'gram",
     heading: "Fresh glows",
     items: [
-      { id: 1, image: "/images/gallery-1.jpg", caption: "Brow shape, wax & tint" },
+      { id: 1, image: "/images/gallery-1.jpg", caption: "Brow lamination" },
       { id: 2, image: "/images/gallery-2.jpg", caption: "Spray tan glow" },
       { id: 3, image: "/images/gallery-3.jpg", caption: "Lash lift & tint" },
-      { id: 4, image: "/images/gallery-4.jpg", caption: "Brow lamination" },
-      { id: 5, image: "/images/hero.jpg", caption: "Sun-kissed" },
+      { id: 4, image: "/images/gallery-4.jpg", caption: "Sun-kissed tan" },
+      { id: 5, image: "/images/gallery-5.jpg", caption: "Effortless" },
       { id: 6, image: "/images/split.jpg", caption: "Studio days" },
     ],
     cta: "Follow for more",

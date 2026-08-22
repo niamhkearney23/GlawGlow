@@ -27,7 +27,7 @@ export default function Services() {
                 <p className="mt-3 flex-1 font-sans text-sm leading-relaxed text-espresso/75">{s.blurb}</p>
                 <div className="mt-7 flex items-center justify-between">
                   <span className="font-display text-2xl italic text-bronze">{s.price}</span>
-                  <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="pill-outline px-5 py-2 text-xs uppercase">
+                  <a href="#book" className="pill-outline px-5 py-2 text-xs uppercase">
                     Book
                   </a>
                 </div>

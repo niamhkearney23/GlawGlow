@@ -65,7 +65,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.75 }}
           >
-            <a href={siteConfig.bookingUrl} target="_blank" rel="noopener noreferrer" className="pill-bronze">
+            <a href="#book" className="pill-bronze">
               {hero.cta}
             </a>
             <a href="#gallery" className="pill-outline">
