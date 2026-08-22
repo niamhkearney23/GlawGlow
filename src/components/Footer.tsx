@@ -1,31 +1,28 @@
-import { Instagram, MapPin, Clock } from "lucide-react";
+import { Instagram, MapPin } from "lucide-react";
 import { siteConfig } from "@/config/content";
+import { BrandMark } from "./Brand";
 
 export default function Footer() {
   const { footer } = siteConfig;
   return (
-    <footer className="bg-cream py-14 text-cocoa">
-      <div className="container grid gap-10 border-t border-nude/50 pt-12 md:grid-cols-3">
+    <footer className="bg-cream py-14">
+      <div className="container grid gap-10 border-t border-espresso/15 pt-12 md:grid-cols-3">
         <div>
-          <p className="font-display text-2xl">Glam <span className="script-accent text-3xl">&amp;</span> Glow</p>
-          <p className="script-accent mt-1 text-2xl">{footer.tagline}</p>
+          <BrandMark className="text-xl" />
+          <p className="mt-3 max-w-xs font-sans text-sm text-espresso/60">Spray tanning, lash lifts and brow styling. Private studio, by appointment.</p>
         </div>
-        <div className="space-y-3 text-sm">
-          <p className="flex items-center gap-2 text-cocoa/75"><MapPin size={15} strokeWidth={1.8} className="text-bronze" />{siteConfig.location}</p>
-          <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-semibold transition-colors hover:text-bronze">
-            <Instagram size={15} strokeWidth={1.8} className="text-bronze" />{siteConfig.instagram}
-          </a>
+        <div className="space-y-3 font-sans text-sm">
+          <p className="flex items-center gap-2 text-espresso/70"><MapPin size={15} strokeWidth={1.8} className="text-bronze" />{siteConfig.location}</p>
+          <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-semibold text-espresso hover:text-bronze"><Instagram size={15} strokeWidth={1.8} className="text-bronze" />{siteConfig.instagram}</a>
         </div>
-        <div className="text-sm">
-          <p className="flex items-center gap-2 text-cocoa/75"><Clock size={15} strokeWidth={1.8} className="text-bronze" />Hours</p>
-          <ul className="mt-2 space-y-1 text-cocoa/70">
-            {footer.hours.map((h, i) => (
-              <li key={i} className="flex justify-between gap-6"><span>{h.day}</span><span>{h.time}</span></li>
-            ))}
+        <div>
+          <p className="label">Hours</p>
+          <ul className="mt-3 space-y-1.5 font-sans text-sm text-espresso/70">
+            {footer.hours.map((h, i) => <li key={i} className="flex justify-between gap-6"><span>{h.day}</span><span>{h.time}</span></li>)}
           </ul>
         </div>
       </div>
-      <p className="container mt-10 text-center text-xs text-cocoa/50">© {siteConfig.name} · {siteConfig.location}</p>
+      <p className="container mt-10 font-sans text-xs text-espresso/40">© {siteConfig.name} · {siteConfig.location}</p>
     </footer>
   );
 }

@@ -2,9 +2,9 @@ import MotionShell from "@/components/MotionShell";
 import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
+import Ticker from "@/components/Ticker";
 import Services from "@/components/Services";
-import SplitRow from "@/components/SplitRow";
+import About from "@/components/About";
 import Gallery from "@/components/Gallery";
 import Care from "@/components/Care";
 import Testimonials from "@/components/Testimonials";
@@ -18,9 +18,9 @@ export default function Home() {
         <Intro />
         <Navbar />
         <Hero />
-        <Marquee />
+        <Ticker />
         <Services />
-        <SplitRow />
+        <About />
         <Gallery />
         <Care />
         <Testimonials />

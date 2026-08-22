@@ -1,36 +1,32 @@
-import { Check } from "lucide-react";
 import { siteConfig } from "@/config/content";
 import Reveal from "./Reveal";
 
 export default function Care() {
   const { care } = siteConfig;
   return (
-    <section id="care" className="relative overflow-hidden bg-peach/40 py-24 md:py-32">
-      <div className="blob right-0 top-10 h-72 w-72 bg-blush" />
-      <div className="container relative">
-        <Reveal className="text-center">
-          <p className="section-label">{care.label}</p>
-          <h2 className="mt-3 font-display text-4xl text-cocoa md:text-6xl">{care.heading}</h2>
+    <section id="care" className="bg-espresso py-24 text-cream md:py-32">
+      <div className="container">
+        <Reveal className="max-w-2xl">
+          <p className="label">{care.label}</p>
+          <h2 className="mt-4 font-display text-5xl md:text-6xl">{care.heading}</h2>
         </Reveal>
-        <div className="mx-auto mt-12 grid max-w-3xl gap-6 md:grid-cols-2">
+        <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
           {care.columns.map((c, i) => (
             <Reveal key={c.title} delay={i * 0.1}>
-              <div className="h-full rounded-3xl bg-cream p-7 shadow-soft">
-                <p className="font-display text-2xl italic text-bronze">{c.title}</p>
-                <ul className="mt-5 space-y-3">
-                  {c.tips.map((t, j) => (
-                    <li key={j} className="flex items-start gap-3">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blush">
-                        <Check size={12} strokeWidth={2.2} className="text-bronze" />
-                      </span>
-                      <span className="font-sans text-sm leading-snug text-espresso/85">{t}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <h3 className="border-t border-cream/20 pt-5 font-display text-3xl">{c.title}</h3>
+              <ol className="mt-6 space-y-4">
+                {c.tips.map((t, j) => (
+                  <li key={j} className="flex gap-4 font-sans text-sm leading-relaxed text-cream/80">
+                    <span className="label shrink-0 pt-0.5 text-bronze">0{j + 1}</span>{t}
+                  </li>
+                ))}
+              </ol>
             </Reveal>
           ))}
         </div>
+        <Reveal delay={0.2} className="mt-14 max-w-2xl border-l-2 border-bronze pl-5">
+          <p className="font-sans text-sm leading-relaxed text-cream/70">{care.note}</p>
+        </Reveal>
       </div>
     </section>
   );

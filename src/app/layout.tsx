@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Glam & Glow Studio | Spray Tanning & Lash Services Melbourne',
+  title: 'Glam & Glow Studio | Spray Tanning, Lashes & Brows — Melbourne Eastern Suburbs',
   description:
     "Boutique spray tanning and lash & brow services in Melbourne's eastern suburbs. Warm, intimate, personalised by your artist.",
 }

@@ -7,143 +7,134 @@ export const BOOKING_URL = "https://instagram.com/glamnglow.studio";
 
 // Online booking calendar. Create a free Calendly (calendly.com) or Fresha
 // (fresha.com) account, copy your booking page link, paste it here and a live
-// booking calendar appears on the site. Leave empty to use "DM to book".
+// booking calendar appears on the site. Leave empty to use "Message to book".
 export const BOOKING_EMBED_URL = "";
 
 export const siteConfig = {
   name: "Glam & Glow Studio",
-  location: "Melbourne Eastern Suburbs",
+  shortName: "Glam & Glow",
+  location: "Melbourne, Eastern Suburbs",
   instagram: "@glamnglow.studio",
   instagramUrl: "https://instagram.com/glamnglow.studio",
   bookingUrl: BOOKING_URL,
-  logo: "/images/logo.png",
 
   nav: {
     links: [
       { label: "Services", href: "#services" },
-      { label: "The Glow", href: "#gallery" },
-      { label: "Prep", href: "#care" },
-      { label: "Love", href: "#reviews" },
+      { label: "About", href: "#about" },
+      { label: "Gallery", href: "#gallery" },
+      { label: "Aftercare", href: "#care" },
+      { label: "Reviews", href: "#reviews" },
     ],
-    cta: "Book now",
+    cta: "Book",
   },
 
   hero: {
-    eyebrow: "Spray tans · Lashes · Brows",
-    headline: "Glow like you\nmean it.",
-    scriptAccent: "let's glow, babe",
-    sub: "Custom spray tans, lifted lashes and perfect brows — in a cosy little studio in Melbourne's east.",
-    cta: "Book a tan",
-    ctaSecondary: "See the glow",
-    // three photos in the tilted stack
-    stack: [
-      { image: "/images/hero.jpg", label: "Glow" },
-      { image: "/images/gallery-3.jpg", label: "Lashes" },
-      { image: "/images/gallery-1.jpg", label: "Brows" },
-    ],
+    eyebrow: "Spray Tanning · Lashes · Brows",
+    headline: "Bronzed. Lifted.\nPolished.",
+    sub: "Professional spray tanning, lash lifts and brow styling in a private studio in Melbourne's eastern suburbs.",
+    cta: "Book an appointment",
+    ctaSecondary: "View services",
+    image: "/images/hero.jpg",
   },
 
-  marquee: ["Look good", "Feel good", "Glam & Glow", "Book now"],
+  ticker: ["Spray Tanning", "Lash Lift & Tint", "Brow Shaping", "Brow Lamination", "Melbourne Eastern Suburbs"],
 
   services: {
-    label: "The Menu",
-    heading: "Pick your glow",
-    items: [
+    label: "Services",
+    heading: "The menu",
+    intro: "Every appointment is one-on-one and tailored to you. Prices are a guide — message for a quote on combinations.",
+    groups: [
       {
-        id: "tan",
-        title: "Spray Tan",
-        blurb: "Hand-applied, colour-matched to you. Zero orange, zero streaks — just that fresh-off-holiday glow.",
-        price: "from $45",
-        time: "20 min",
+        title: "Spray Tanning",
+        items: [
+          { name: "Full body spray tan", desc: "Custom-matched solution, hand-applied for an even, natural finish.", time: "20 min", price: "$45" },
+          { name: "Express tan", desc: "Rapid-develop formula — rinse in 1–3 hours.", time: "20 min", price: "$55" },
+          { name: "Bridal / event package", desc: "Trial tan plus event tan, timed to the day.", time: "2 visits", price: "$95" },
+        ],
       },
       {
-        id: "lash",
-        title: "Lash Lift & Tint",
-        blurb: "Your own lashes, lifted and darkened. Wake up looking like you've done your makeup.",
-        price: "from $60",
-        time: "45 min",
-      },
-      {
-        id: "brow",
-        title: "Brows",
-        blurb: "Wax, shape, tint or lamination — fluffy, lifted, and shaped to your face.",
-        price: "from $25",
-        time: "30 min",
+        title: "Lashes & Brows",
+        items: [
+          { name: "Lash lift & tint", desc: "Lifts and darkens your natural lashes for 6–8 weeks.", time: "45 min", price: "$75" },
+          { name: "Brow shape & tint", desc: "Wax or tweeze shaping with a colour-matched tint.", time: "30 min", price: "$40" },
+          { name: "Brow lamination", desc: "Sets brows fuller and lifted, includes shape and tint.", time: "45 min", price: "$70" },
+        ],
       },
     ],
   },
 
-  split: {
-    label: "Hi, I'm Elissa",
-    heading: "Your glow,\ndone properly",
+  about: {
+    label: "About",
+    heading: "A private studio,\nrun by your artist",
     body:
-      "Glam & Glow is my little studio — one client at a time, no rushing, no conveyor belt. I match every tan to your skin tone and style every brow to your face. You'll leave glowing and feeling like yourself, just more.",
-    cta: "Come say hi",
+      "Glam & Glow is owned and run by Elissa, a qualified tanning and lash technician. Appointments are one client at a time in a calm, private studio — no waiting rooms, no rushing. Every tan is colour-matched to your skin tone and every brow is shaped to your face.",
+    points: ["Qualified & insured", "Premium, vegan solutions", "Private one-on-one studio", "Easy parking, Eastern Suburbs"],
+    cta: "Book an appointment",
     image: "/images/split.jpg",
-    imageLabel: "Elissa",
   },
 
   gallery: {
-    label: "On the 'gram",
-    heading: "Fresh glows",
+    label: "Gallery",
+    heading: "Recent work",
     items: [
-      { id: 1, image: "/images/gallery-1.jpg", caption: "Brow lamination" },
-      { id: 2, image: "/images/gallery-2.jpg", caption: "Spray tan glow" },
-      { id: 3, image: "/images/gallery-3.jpg", caption: "Lash lift & tint" },
-      { id: 4, image: "/images/gallery-4.jpg", caption: "Sun-kissed tan" },
-      { id: 5, image: "/images/gallery-5.jpg", caption: "Effortless" },
-      { id: 6, image: "/images/split.jpg", caption: "Studio days" },
+      { id: 1, image: "/images/gallery-1.jpg", caption: "Lash lift & tint" },
+      { id: 2, image: "/images/gallery-2.jpg", caption: "Full body spray tan" },
+      { id: 3, image: "/images/gallery-3.jpg", caption: "Brow lamination" },
+      { id: 4, image: "/images/gallery-4.jpg", caption: "Event tan" },
+      { id: 5, image: "/images/gallery-5.jpg", caption: "Brow shape & tint" },
+      { id: 6, image: "/images/gallery-6.jpg", caption: "Express tan" },
     ],
-    cta: "Follow for more",
+    cta: "See more on Instagram",
   },
 
   care: {
-    label: "Prep & Aftercare",
-    heading: "Make it last",
+    label: "Preparation & Aftercare",
+    heading: "Getting the best result",
     columns: [
       {
-        title: "Before",
+        title: "Before your tan",
         tips: [
-          "Exfoliate the day before",
-          "No moisturiser or makeup on the day",
-          "Loose dark clothes + thongs",
-          "Hair up, no jewellery or perfume",
+          "Exfoliate the day before, focusing on elbows, knees and ankles",
+          "Arrive with clean skin — no moisturiser, deodorant or makeup",
+          "Wear loose, dark clothing and open footwear",
+          "Remove jewellery and avoid perfume",
         ],
       },
       {
-        title: "After",
+        title: "After your tan",
         tips: [
-          "Stay dry 6–8 hours",
-          "First shower lukewarm, no scrubbing",
-          "Moisturise every day",
-          "Skip pools, hot tubs & sweaty workouts",
+          "Avoid water and sweating for 6–8 hours while it develops",
+          "First rinse in lukewarm water — no soap or scrubbing",
+          "Moisturise daily to extend the life of your tan",
+          "Avoid chlorine, spas and exfoliants",
         ],
       },
     ],
+    note: "Dry skin absorbs more solution and can fade faster — moisturise well in the days beforehand. Oily skin develops more slowly — cleanse thoroughly before your appointment.",
   },
 
   testimonials: {
-    label: "Client love",
+    label: "Reviews",
     items: [
-      { quote: "Most natural tan I've ever had. Not orange, not patchy — just glowy.", name: "Bella" },
-      { quote: "The studio is so cute and Elissa is an actual artist with brows.", name: "Sophie" },
-      { quote: "My lashes have never looked this good. Obsessed.", name: "Tahlia" },
+      { quote: "The most natural tan I've ever had. Even, streak-free, and it faded beautifully.", name: "Bella R." },
+      { quote: "Elissa is meticulous. My brows have never been shaped this well.", name: "Sophie M." },
+      { quote: "Calm, private, professional. I won't go anywhere else for my lashes now.", name: "Tahlia K." },
     ],
   },
 
   booking: {
-    label: "Ready?",
-    heading: "DM to book",
-    subtext: "Slide into the DMs and let's lock in your glow.",
-    cta: "Message on Instagram",
+    label: "Bookings",
+    heading: "Book an appointment",
+    subtext: "Message us on Instagram with your preferred service and times and we'll confirm your appointment.",
+    cta: "Message to book",
   },
 
   footer: {
-    tagline: "Look good, feel good.",
     hours: [
-      { day: "Tue – Fri", time: "10am – 6pm" },
-      { day: "Saturday", time: "9am – 4pm" },
-      { day: "Sun – Mon", time: "By appointment" },
+      { day: "Tuesday – Friday", time: "10:00am – 6:00pm" },
+      { day: "Saturday", time: "9:00am – 4:00pm" },
+      { day: "Sunday – Monday", time: "By appointment" },
     ],
   },
 };

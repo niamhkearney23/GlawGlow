@@ -1,94 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Mr+Dafoe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --cream: #FFF8F3;
-  --blush: #F9E4DC;
-  --peach: #F6CDB9;
-  --nude: #E9C5AE;
-  --bronze: #B8845A;
-  --gold: #D9A877;
-  --cocoa: #6B4636;
-  --espresso: #3A2A20;
+  --cream: #FAF6F1; --sand: #EFE6DC; --taupe: #C9B8A8;
+  --bronze: #A9794F; --cocoa: #5E4332; --espresso: #2B211B;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { @apply bg-cream text-espresso font-sans antialiased; }
+h1, h2, h3 { @apply font-display font-medium; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
-
-body {
-  @apply bg-cream text-espresso font-sans antialiased;
+/* small uppercase labels */
+.label {
+  @apply font-sans text-[11px] font-semibold uppercase text-bronze;
+  letter-spacing: 0.22em;
 }
 
-h1, h2, h3, h4 { @apply font-display; }
+.container { @apply max-w-7xl mx-auto px-5 md:px-8 lg:px-12; }
 
-/* Tiny uppercase labels */
-.section-label {
-  @apply font-sans text-[11px] md:text-xs font-semibold uppercase text-bronze;
-  letter-spacing: 0.28em;
+/* buttons — squared-off, professional */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm px-7 py-3.5 font-sans text-sm font-semibold
+         uppercase transition-all duration-300;
+  letter-spacing: 0.12em;
 }
+.btn-solid { @apply btn bg-espresso text-cream hover:bg-bronze; }
+.btn-bronze { @apply btn bg-bronze text-cream hover:bg-espresso; }
+.btn-outline { @apply btn border border-espresso/30 text-espresso hover:border-espresso hover:bg-espresso hover:text-cream; }
+.btn-outline-light { @apply btn border border-cream/40 text-cream hover:bg-cream hover:text-espresso; }
 
-/* Script accent — the signature */
-.script-accent {
-  @apply font-script text-bronze;
-  line-height: 1;
-}
-
-.container { @apply max-w-7xl mx-auto px-5 md:px-8 lg:px-10; }
-
-/* Buttons */
-.pill {
-  @apply inline-flex items-center justify-center gap-2 rounded-full font-sans font-semibold
-         transition-all duration-300 ease-out;
-  letter-spacing: 0.06em;
-}
-.pill-bronze {
-  @apply pill text-cream px-7 py-3.5 shadow-glow hover:-translate-y-0.5 hover:shadow-card;
-  background: linear-gradient(120deg, var(--bronze), var(--gold), var(--bronze));
-  background-size: 200% 200%;
-  animation: shimmer 6s linear infinite;
-}
-.pill-outline {
-  @apply pill border border-cocoa/30 text-cocoa px-6 py-3 hover:bg-cocoa hover:text-cream;
-}
-.pill-cream {
-  @apply pill bg-cream text-cocoa px-7 py-3.5 shadow-soft hover:-translate-y-0.5;
-}
-
-/* Glow blobs behind sections */
-.blob {
-  @apply pointer-events-none absolute rounded-full blur-3xl;
-}
-
-/* Polaroid-style photo card */
-.polaroid {
-  @apply rounded-2xl bg-cream p-2 shadow-card;
-}
-.polaroid img { @apply rounded-xl; }
-
-/* Placeholder gradient (peach → bronze) until a real photo exists */
 .img-placeholder {
   @apply flex items-center justify-center text-center;
-  background: linear-gradient(135deg, var(--peach) 0%, var(--bronze) 100%);
+  background: linear-gradient(135deg, var(--sand), var(--taupe));
 }
-.img-placeholder span {
-  @apply font-sans text-cream/90 uppercase text-[11px] md:text-xs px-4;
-  letter-spacing: 0.3em;
-}
+.img-placeholder span { @apply label text-espresso/60 px-4; }
 
-.marquee-track { display: flex; width: max-content; white-space: nowrap; }
+.ticker-track { display: flex; width: max-content; white-space: nowrap; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee, .animate-float, .pill-bronze { animation: none !important; }
+  .animate-ticker { animation: none !important; }
   html { scroll-behavior: auto; }
 }
 
 a:focus-visible, button:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
-
-::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { @apply bg-cream; }
-::-webkit-scrollbar-thumb { @apply bg-nude rounded-full; }
-::-webkit-scrollbar-thumb:hover { @apply bg-bronze; }
+::-webkit-scrollbar-thumb { @apply bg-taupe rounded-full; }
