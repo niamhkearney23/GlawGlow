@@ -28,7 +28,7 @@ export default function Hero() {
       </div>
       {/* photo */}
       <motion.div
-        className="order-1 h-[55vh] md:order-2 md:h-auto"
+        className="order-1 h-[55vh] md:order-2 md:h-auto md:pt-[73px]"
         initial={{ opacity: 0, scale: 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}

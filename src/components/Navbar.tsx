@@ -24,7 +24,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "bg-cream/90 shadow-soft backdrop-blur-md" : "bg-transparent"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 border-b border-espresso/10 bg-cream/95 backdrop-blur-md transition-shadow duration-500 ${scrolled ? "shadow-soft" : ""}`}>
       <nav className="container flex items-center justify-between py-5">
         <a href="#top" className="flex h-7 items-center" aria-label={siteConfig.name}>
           {showBrand && (
