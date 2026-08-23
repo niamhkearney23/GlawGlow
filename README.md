@@ -3,7 +3,7 @@
 Website for **Glam & Glow Studio** — spray tanning, lash lifts, brows and waxing,
 run by Elissa Colafella from a private home studio in Blackburn, Melbourne.
 
-**Live:** https://glaw-glow.vercel.app
+**Live:** https://glamandglow.vercel.app
 
 ## Editing the site
 
