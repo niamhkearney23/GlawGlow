@@ -1,56 +1,73 @@
 # Glam & Glow Studio
 
-A warm, intimate, boutique one-page site for **Glam & Glow Studio** — spray tanning
-and lash/brow services in Melbourne's eastern suburbs. Editorial design, built to be
-filmed for Instagram (scroll-reveal motion, slow Ken Burns hero, scrolling marquee).
+Website for **Glam & Glow Studio** — spray tanning, lash lifts, brows and waxing,
+run by Elissa Colafella from a private home studio in Blackburn, Melbourne.
+
+**Live:** https://glaw-glow.vercel.app
+
+## Editing the site
+
+**Almost everything you'd want to change lives in one file:**
+[`src/config/content.ts`](src/config/content.ts) — services, prices, durations,
+opening hours, reviews, the About text, gallery captions and Instagram link.
+
+Edit it on GitHub, commit, and the live site updates in about a minute.
+
+### The booking link
+Two settings at the top of `content.ts`:
+
+```ts
+export const BOOKING_URL = "https://instagram.com/glamnglow.studio";  // "Message to book"
+export const BOOKING_EMBED_URL = "";                                  // live booking calendar
+```
+
+Leave `BOOKING_EMBED_URL` empty and every "Book" button points at Instagram DMs.
+Paste a **Fresha** or **Calendly** booking link into it and a real booking
+calendar appears on the page instead — no other changes needed.
+
+### Photos
+See [`public/images/README.md`](public/images/README.md). The photos in there now
+are stock placeholders; drop in real ones using the same file names.
 
 ## What's on the page
 
-Hero (full-screen) → scrolling marquee → Services (two tiers) → Studio split row →
-Gallery → Testimonials → "DM to Book" band → Footer.
+Hero → services ticker → price-list menu → About → gallery → prep & aftercare →
+reviews → booking → footer.
 
-## Design system
+## Design
 
-- **Palette:** cocoa `#6B4636`, latte `#C4A88E`, cream `#F5EDE4`, bronze `#B08254`, espresso `#3A2A20`
-- **Fonts:** Fraunces (display serif) · Mr Dafoe (script accent) · Hanken Grotesk (body & labels)
-- **Icons:** thin-stroke [Lucide](https://lucide.dev) in bronze — no emoji
-- **Images:** local only, from `/public/images` (see that folder's README)
+- **Colours:** cream `#FAF6F1`, sand `#EFE6DC`, taupe `#C9B8A8`, bronze `#A9794F`, cocoa `#5E4332`, espresso `#2B211B`
+- **Fonts:** Cormorant Garamond (headings) + Manrope (body/labels)
+- **Icons:** [Lucide](https://lucide.dev), thin stroke
 
-## Edit the content
+### Motion
+The wordmark rises on load then glides into the header (shared-element morph).
+On scroll: photos wipe-reveal, the About photo has parallax, menu rows stagger in,
+and a bronze progress line tracks down the top of the page. All motion is disabled
+automatically for visitors who have "reduce motion" turned on.
 
-**Everything editable lives in one file: [`src/config/content.ts`](src/config/content.ts)** —
-copy, prices, hours, socials, testimonials, and image paths.
+## Search / sharing
 
-The booking link is a single variable at the top of that file:
+The page carries `BeautySalon` structured data (location, opening hours and priced
+services, generated from `content.ts`) so Google can show the business properly in
+local results, plus OpenGraph tags so the link previews nicely when shared.
 
-```ts
-export const BOOKING_URL = "https://instagram.com/glamnglow.studio";
-```
-
-Change it once and every button on the site (nav, hero, services, booking band) updates.
-
-## Add your photos
-
-See [`public/images/README.md`](public/images/README.md). Drop files in with the exact
-names listed there; until then each spot shows a branded placeholder, never a broken image.
-
-## Run locally
+## Running it locally
 
 ```bash
 npm install
 npm run dev          # http://localhost:3000
 ```
 
-## Deploy on Vercel
+Note: don't run `npm run build` while `npm run dev` is running — they share the
+`.next` folder and the dev server will start throwing 500s. If that happens,
+`rm -rf .next` and restart.
 
-This repo is already connected to Vercel. Any push to the `main` branch redeploys
-automatically. For a fresh project:
+## Deploying
 
-1. Push the repo to GitHub.
-2. On [vercel.com](https://vercel.com) → **New Project** → import the repo.
-3. **Framework Preset must be `Next.js`** (this is the one setting that matters — do
-   not add a custom `vercel.json` output directory).
-4. Click **Deploy**.
+The repo is connected to Vercel — pushing to `main` deploys automatically.
+For a fresh setup, import the repo on vercel.com and make sure **Framework Preset
+is `Next.js`** (don't add a custom `vercel.json` output directory).
 
 ## Tech
 
