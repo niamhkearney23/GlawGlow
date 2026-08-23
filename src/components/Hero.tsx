@@ -33,7 +33,7 @@ export default function Hero() {
         animate={{ clipPath: "inset(0 0 0% 0)", scale: 1 }}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
       >
-        <SmartImage src={hero.image} label="Hero" alt={siteConfig.name} className="h-full w-full" />
+        <SmartImage src={hero.image} label="Hero" alt={siteConfig.name} className="h-full w-full" imgClassName="grayscale" />
       </motion.div>
     </section>
   );

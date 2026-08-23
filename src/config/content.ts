@@ -43,13 +43,13 @@ export const siteConfig = {
   services: {
     label: "Services",
     heading: "The menu",
-    intro: "Every appointment is one-on-one and tailored to you. Prices are a guide — message for a quote on combinations.",
+    intro: "Every appointment is one-on-one and tailored to you. Prices are a guide. Message for a quote on combinations.",
     groups: [
       {
         title: "Spray Tanning",
         items: [
           { name: "Full body spray tan", desc: "Custom-matched solution, hand-applied for an even, natural finish.", time: "20 min", price: "$45" },
-          { name: "Express tan", desc: "Rapid-develop formula — rinse in 1–3 hours.", time: "20 min", price: "$55" },
+          { name: "Express tan", desc: "Rapid-develop formula, rinse in 1 to 3 hours.", time: "20 min", price: "$55" },
           { name: "Bridal / event package", desc: "Trial tan plus event tan, timed to the day.", time: "2 visits", price: "$95" },
         ],
       },
@@ -68,7 +68,7 @@ export const siteConfig = {
     label: "About",
     heading: "A private studio,\nrun by your artist",
     body:
-      "Glam & Glow is owned and run by Elissa Colafella, a qualified beauty therapist. Appointments are one client at a time in a calm, private studio — no waiting rooms, no rushing. Every tan is colour-matched to your skin tone and every brow is shaped to your face.",
+      "Glam & Glow is owned and run by Elissa Colafella, a qualified beauty therapist. Appointments are one client at a time in a calm, private studio. No waiting rooms, no rushing. Every tan is colour-matched to your skin tone and every brow is shaped to your face.",
     points: ["Qualified beauty therapist", "Premium, vegan tanning solutions", "Private one-on-one home studio", "Blackburn, easy parking"],
     cta: "Book an appointment",
     image: "/images/split.jpg",
@@ -96,7 +96,7 @@ export const siteConfig = {
         title: "Before your tan",
         tips: [
           "Exfoliate the day before, focusing on elbows, knees and ankles",
-          "Arrive with clean skin — no moisturiser, deodorant or makeup",
+          "Arrive with clean skin, no moisturiser, deodorant or makeup",
           "Wear loose, dark clothing and open footwear",
           "Remove jewellery and avoid perfume",
         ],
@@ -105,13 +105,13 @@ export const siteConfig = {
         title: "After your tan",
         tips: [
           "Avoid water and sweating for 6–8 hours while it develops",
-          "First rinse in lukewarm water — no soap or scrubbing",
+          "First rinse in lukewarm water, no soap or scrubbing",
           "Moisturise daily to extend the life of your tan",
           "Avoid chlorine, spas and exfoliants",
         ],
       },
     ],
-    note: "Dry skin absorbs more solution and can fade faster — moisturise well in the days beforehand. Oily skin develops more slowly — cleanse thoroughly before your appointment.",
+    note: "Dry skin absorbs more solution and can fade faster, so moisturise well in the days beforehand. Oily skin develops more slowly, so cleanse thoroughly before your appointment.",
   },
 
   testimonials: {

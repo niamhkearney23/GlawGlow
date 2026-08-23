@@ -6,7 +6,7 @@ const SITE_URL = "https://glaw-glow.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Glam & Glow Studio | Spray Tans, Lashes & Brows — Blackburn, Melbourne",
+  title: "Glam & Glow Studio | Spray Tans, Lashes & Brows in Blackburn, Melbourne",
   description:
     "Professional spray tanning, lash lifts and brow styling by a qualified beauty therapist. Private home studio in Blackburn, Melbourne. Book by appointment.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Glam & Glow Studio",
-    description: "Spray tanning, lashes and brows — Blackburn, Melbourne.",
+    description: "Spray tanning, lashes and brows in Blackburn, Melbourne.",
     images: ["/images/hero.jpg"],
   },
   robots: { index: true, follow: true },

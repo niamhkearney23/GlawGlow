@@ -5,7 +5,7 @@ export default function Ticker() {
     <div className="flex shrink-0 items-center">
       {siteConfig.ticker.map((w, i) => (
         <span key={i} className="label flex items-center text-cream/80">
-          <span className="px-8">{w}</span><span className="text-bronze">—</span>
+          <span className="px-8">{w}</span><span className="text-bronze">&middot;</span>
         </span>
       ))}
     </div>
