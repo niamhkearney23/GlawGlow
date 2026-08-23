@@ -13,7 +13,7 @@ const up = (d: number) => ({
 export default function Hero() {
   const { hero } = siteConfig;
   return (
-    <section id="top" className="grid min-h-screen md:grid-cols-2">
+    <section id="top" className="grid min-h-screen pt-24 md:grid-cols-2 md:pt-0">
       {/* text panel */}
       <div className="order-2 flex flex-col justify-center bg-cream px-6 pb-20 pt-12 md:order-1 md:px-12 md:pt-32 lg:px-20">
         <motion.p className="label" {...up(0.1)}>{hero.eyebrow}</motion.p>
@@ -28,7 +28,7 @@ export default function Hero() {
       </div>
       {/* photo */}
       <motion.div
-        className="order-1 mt-16 h-[55vh] md:order-2 md:mt-0 md:h-auto md:pt-[73px]"
+        className="order-1 h-[55vh] md:order-2 md:h-auto md:pt-[90px]"
         initial={{ clipPath: "inset(0 0 100% 0)", scale: 1.06 }}
         animate={{ clipPath: "inset(0 0 0% 0)", scale: 1 }}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
