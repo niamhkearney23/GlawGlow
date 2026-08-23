@@ -28,7 +28,7 @@ export default function Hero() {
       </div>
       {/* photo */}
       <motion.div
-        className="order-1 h-[55vh] md:order-2 md:h-auto md:pt-[73px]"
+        className="order-1 mt-16 h-[55vh] md:order-2 md:mt-0 md:h-auto md:pt-[73px]"
         initial={{ clipPath: "inset(0 0 100% 0)", scale: 1.06 }}
         animate={{ clipPath: "inset(0 0 0% 0)", scale: 1 }}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
