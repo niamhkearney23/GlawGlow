@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/content";
 import "./globals.css";
 
-const SITE_URL = "https://glamandglow.vercel.app";
+const SITE_URL = "https://glamglowstudio.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
