@@ -6,6 +6,11 @@ import { Menu, X } from "lucide-react";
 import { siteConfig } from "@/config/content";
 import { BrandMark, INTRO_DONE_EVENT } from "./Brand";
 
+// Hide the Reviews link while there are no reviews, so it never points at nothing.
+const navLinks = siteConfig.nav.links.filter(
+  (l) => l.href !== "#reviews" || siteConfig.testimonials.items.length > 0
+);
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [showBrand, setShowBrand] = useState(false);
@@ -41,7 +46,7 @@ export default function Navbar() {
         </a>
 
         <ul className="hidden items-center gap-9 lg:flex">
-          {siteConfig.nav.links.map((l) => (
+          {navLinks.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
@@ -80,7 +85,7 @@ export default function Navbar() {
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
             <ul className="container flex flex-col py-2">
-              {siteConfig.nav.links.map((l) => (
+              {navLinks.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}

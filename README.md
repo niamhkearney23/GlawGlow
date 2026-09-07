@@ -29,6 +29,39 @@ calendar appears on the page instead — no other changes needed.
 See [`public/images/README.md`](public/images/README.md). The photos in there now
 are stock placeholders; drop in real ones using the same file names.
 
+## The admin page (for Elissa)
+
+She can edit the site herself at **/admin** — prices, hours, photos, reviews and
+the main wording. Saving writes the change back to this repo, which redeploys the
+site automatically, so edits appear about a minute later.
+
+Nothing works until these are added in **Vercel → Settings → Environment Variables**:
+
+| Name | What it is |
+| --- | --- |
+| `ADMIN_PASSWORD` | The password she types to sign in. Pick something long. |
+| `ADMIN_SECRET` | Any long random string. Used to sign her sign-in cookie. |
+| `GITHUB_TOKEN` | A GitHub token with permission to write to this repo. |
+
+To create the token: GitHub → Settings → Developer settings → Personal access
+tokens → **Fine-grained tokens** → Generate new token. Give it access to only the
+`GlawGlow` repository, and under Repository permissions set **Contents: Read and
+write**. Copy the token straight into Vercel; it is only shown once.
+
+Optional: `GITHUB_REPO` (defaults to `niamhkearney23/GlawGlow`) and
+`GITHUB_BRANCH` (defaults to `main`).
+
+After adding the variables, redeploy once so they take effect.
+
+Notes on how it behaves:
+- Photos are shrunk and rotated upright in the browser before uploading, so
+  sideways phone photos come out the right way up.
+- Only the fixed set of image names can be written, so nothing else in the repo
+  can be overwritten from the admin page.
+- If two people edit at once, the second save is refused rather than overwriting
+  the first.
+- Every change is an ordinary commit, so anything can be undone from the repo.
+
 ## What's on the page
 
 Hero → services ticker → price-list menu → About → gallery → prep & aftercare →
