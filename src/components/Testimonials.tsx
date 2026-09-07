@@ -3,6 +3,7 @@ import Reveal from "./Reveal";
 
 export default function Testimonials() {
   const { testimonials } = siteConfig;
+  if (!testimonials.items.length) return null;
   return (
     <section id="reviews" className="bg-cream py-24 md:py-32">
       <div className="container">

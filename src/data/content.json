@@ -1,0 +1,119 @@
+{
+  "name": "Glam & Glow Studio",
+  "shortName": "Glam & Glow",
+  "location": "Blackburn, Melbourne",
+  "instagram": "@glamnglow.studio",
+  "instagramUrl": "https://instagram.com/glamnglow.studio",
+  "bookingUrl": "https://instagram.com/glamnglow.studio",
+  "bookingEmbedUrl": "",
+  "nav": {
+    "links": [
+      { "label": "Services", "href": "#services" },
+      { "label": "About", "href": "#about" },
+      { "label": "Gallery", "href": "#gallery" },
+      { "label": "Aftercare", "href": "#care" },
+      { "label": "Reviews", "href": "#reviews" }
+    ],
+    "cta": "Book"
+  },
+  "hero": {
+    "eyebrow": "Spray Tanning · Lashes · Brows · Waxing",
+    "headline": "Bronzed. Lifted.\nPolished.",
+    "sub": "Professional spray tanning, lash lifts and brow styling by a qualified beauty therapist, in a private home studio in Blackburn, Melbourne.",
+    "cta": "Book an appointment",
+    "ctaSecondary": "View services",
+    "image": "/images/hero.jpg"
+  },
+  "ticker": ["Spray Tanning", "Lash Lift", "Brow Shaping", "Brow Tint", "Waxing", "Blackburn, Melbourne"],
+  "services": {
+    "label": "Services",
+    "heading": "The menu",
+    "intro": "Every appointment is one-on-one and tailored to you. Message for a quote on combinations.",
+    "groups": [
+      {
+        "title": "Spray Tanning",
+        "items": [
+          { "name": "Spray tan", "desc": "Hand applied and colour matched to your skin tone.", "time": "", "price": "$45" }
+        ]
+      },
+      {
+        "title": "Lashes & Brows",
+        "items": [
+          { "name": "Lash lift", "desc": "Lifts and curls your natural lashes.", "time": "", "price": "$60" },
+          { "name": "Lash tint", "desc": "Darkens your natural lashes.", "time": "", "price": "$15" },
+          { "name": "Brow wax", "desc": "Shaped and tidied to suit your face.", "time": "", "price": "$25" },
+          { "name": "Brow tint", "desc": "Colour matched for fuller looking brows.", "time": "", "price": "$15" }
+        ]
+      },
+      {
+        "title": "Waxing",
+        "items": [
+          { "name": "Upper lip wax", "desc": "", "time": "", "price": "$15" }
+        ]
+      }
+    ]
+  },
+  "about": {
+    "label": "About",
+    "heading": "A private studio,\nrun by your artist",
+    "body": "Glam & Glow is owned and run by Elissa Colafella, a qualified beauty therapist. Appointments are one client at a time in a calm, private studio. No waiting rooms, no rushing. Every tan is colour matched to your skin tone and every brow is shaped to your face.",
+    "points": ["Qualified beauty therapist", "Premium, vegan tanning solutions", "Private one-on-one home studio", "Blackburn, easy parking"],
+    "cta": "Book an appointment",
+    "image": "/images/split.jpg"
+  },
+  "gallery": {
+    "label": "Gallery",
+    "heading": "Recent work",
+    "items": [
+      { "id": 1, "image": "/images/gallery-1.jpg", "caption": "Lash lift" },
+      { "id": 2, "image": "/images/gallery-2.jpg", "caption": "Spray tan" },
+      { "id": 3, "image": "/images/gallery-3.jpg", "caption": "Brow tint" },
+      { "id": 4, "image": "/images/gallery-4.jpg", "caption": "Spray tan" },
+      { "id": 5, "image": "/images/gallery-5.jpg", "caption": "Brow wax" },
+      { "id": 6, "image": "/images/gallery-6.jpg", "caption": "Lash tint" }
+    ],
+    "cta": "See more on Instagram"
+  },
+  "care": {
+    "label": "Preparation & Aftercare",
+    "heading": "Getting the best result",
+    "columns": [
+      {
+        "title": "Before your tan",
+        "tips": [
+          "Exfoliate the day before, focusing on elbows, knees and ankles",
+          "Arrive with clean skin, no moisturiser, deodorant or makeup",
+          "Wear loose, dark clothing and open footwear",
+          "Remove jewellery and avoid perfume"
+        ]
+      },
+      {
+        "title": "After your tan",
+        "tips": [
+          "Avoid water and sweating for 6 to 8 hours while it develops",
+          "First rinse in lukewarm water, no soap or scrubbing",
+          "Moisturise daily to extend the life of your tan",
+          "Avoid chlorine, spas and exfoliants"
+        ]
+      }
+    ],
+    "note": "Dry skin absorbs more solution and can fade faster, so moisturise well in the days beforehand. Oily skin develops more slowly, so cleanse thoroughly before your appointment."
+  },
+  "testimonials": {
+    "label": "Reviews",
+    "items": []
+  },
+  "booking": {
+    "label": "Bookings",
+    "heading": "Book an appointment",
+    "subtext": "Message us on Instagram with your preferred service and times and we'll confirm your appointment.",
+    "cta": "Message to book"
+  },
+  "footer": {
+    "hours": [
+      { "day": "Tuesday – Friday", "time": "10:00am – 6:00pm" },
+      { "day": "Saturday", "time": "9:00am – 4:00pm" },
+      { "day": "Sunday – Monday", "time": "By appointment" }
+    ]
+  }
+}

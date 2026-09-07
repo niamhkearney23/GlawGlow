@@ -20,8 +20,8 @@ export default function Services() {
                   <StaggerItem as="div" key={it.name} className="flex items-start justify-between gap-6 border-b border-espresso/10 py-6">
                     <div>
                       <p className="font-sans text-base font-semibold text-espresso">{it.name}</p>
-                      <p className="mt-1 max-w-sm font-sans text-sm leading-relaxed text-espresso/60">{it.desc}</p>
-                      <p className="label mt-2 text-espresso/40">{it.time}</p>
+                      {it.desc && <p className="mt-1 max-w-sm font-sans text-sm leading-relaxed text-espresso/60">{it.desc}</p>}
+                      {it.time && <p className="label mt-2 text-espresso/40">{it.time}</p>}
                     </div>
                     <p className="shrink-0 font-display text-2xl text-bronze">{it.price}</p>
                   </StaggerItem>
