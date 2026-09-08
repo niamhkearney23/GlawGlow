@@ -63,6 +63,10 @@ async function prepareImage(file: File): Promise<string> {
   canvas.height = Math.round(height * scale);
   const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("Could not process that photo.");
+  // JPEG has no transparency, so see-through parts of a PNG would come out
+  // black. Lay down white first.
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(draw, 0, 0, canvas.width, canvas.height);
   const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
   const base64 = dataUrl.split(",")[1];
@@ -310,7 +314,7 @@ export default function AdminPage() {
                   </span>
                   <input
                     type="file"
-                    accept="image/jpeg,image/png,image/webp,image/heic,image/heif,image/*"
+                    accept="image/*,.jpg,.jpeg,.png,.webp,.heic,.heif"
                     className="hidden"
                     disabled={busy}
                     onChange={(e) => {
