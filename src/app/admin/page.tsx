@@ -14,22 +14,60 @@ const IMAGE_SLOTS = [
   { file: "gallery-6.jpg", label: "Gallery 6" },
 ];
 
-/**
- * Shrinks a phone photo before upload and corrects sideways photos
- * (phones store rotation as EXIF data rather than rotating the pixels).
- */
+/** Decodes a photo, trying the widest-support route first. Safari can read HEIC
+ *  via an <img> even though createImageBitmap may refuse it. */
+async function decodeImage(file: File): Promise<{ width: number; height: number; draw: CanvasImageSource }> {
+  try {
+    const bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
+    return { width: bitmap.width, height: bitmap.height, draw: bitmap };
+  } catch {
+    /* fall through */
+  }
+  try {
+    const bitmap = await createImageBitmap(file);
+    return { width: bitmap.width, height: bitmap.height, draw: bitmap };
+  } catch {
+    /* fall through */
+  }
+  // Last resort: let the browser decode it as a normal image.
+  return await new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      resolve({ width: img.naturalWidth, height: img.naturalHeight, draw: img });
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      const heic = /\.(heic|heif)$/i.test(file.name) || /heic|heif/i.test(file.type);
+      reject(
+        new Error(
+          heic
+            ? "That's an iPhone HEIC photo, which this browser can't read. Open it in Photos and choose Export, or email the photo to yourself, then upload the JPG version."
+            : "That photo format isn't supported. Please use a JPG or PNG."
+        )
+      );
+    };
+    img.src = url;
+  });
+}
+
+/** Shrinks the photo and corrects sideways ones before upload. */
 async function prepareImage(file: File): Promise<string> {
-  const bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
+  const { width, height, draw } = await decodeImage(file);
+  if (!width || !height) throw new Error("That photo appears to be empty.");
   const maxSide = 1600;
-  const scale = Math.min(1, maxSide / Math.max(bitmap.width, bitmap.height));
+  const scale = Math.min(1, maxSide / Math.max(width, height));
   const canvas = document.createElement("canvas");
-  canvas.width = Math.round(bitmap.width * scale);
-  canvas.height = Math.round(bitmap.height * scale);
+  canvas.width = Math.round(width * scale);
+  canvas.height = Math.round(height * scale);
   const ctx = canvas.getContext("2d");
   if (!ctx) throw new Error("Could not process that photo.");
-  ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(draw, 0, 0, canvas.width, canvas.height);
   const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
-  return dataUrl.split(",")[1];
+  const base64 = dataUrl.split(",")[1];
+  if (!base64) throw new Error("Could not read that photo.");
+  return base64;
 }
 
 export default function AdminPage() {
@@ -40,6 +78,8 @@ export default function AdminPage() {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [slotState, setSlotState] = useState<Record<string, string>>({});
+  const [stamp, setStamp] = useState(Date.now());
 
   const load = useCallback(async () => {
     const res = await fetch("/api/admin/content", { cache: "no-store" });
@@ -85,7 +125,10 @@ export default function AdminPage() {
   }
 
   async function uploadPhoto(slot: string, file: File) {
-    setBusy(true); setError(""); setStatus(`Uploading ${slot}...`);
+    setBusy(true);
+    setError("");
+    setStatus("");
+    setSlotState((p) => ({ ...p, [slot]: "Working..." }));
     try {
       const dataBase64 = await prepareImage(file);
       const res = await fetch("/api/admin/upload", {
@@ -93,12 +136,16 @@ export default function AdminPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ filename: slot, dataBase64 }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Upload failed.");
-      setStatus(`${slot} uploaded. Your website will update in about a minute.`);
+      const data = await res.json().catch(() => ({}));
+      if (res.status === 401) throw new Error("You've been signed out. Sign in again and retry.");
+      if (!res.ok) throw new Error(data.error || `Upload failed (${res.status}).`);
+      setSlotState((p) => ({ ...p, [slot]: "Uploaded" }));
+      setStatus("Photo uploaded. Your website will update in about a minute.");
+      setStamp(Date.now());
     } catch (err) {
-      setStatus("");
-      setError((err as Error).message);
+      const message = (err as Error).message;
+      setSlotState((p) => ({ ...p, [slot]: "Failed" }));
+      setError(message);
     } finally {
       setBusy(false);
     }
@@ -236,18 +283,45 @@ export default function AdminPage() {
             Pick a photo from your phone. Sideways photos are straightened and large ones shrunk automatically.
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            {IMAGE_SLOTS.map((slot) => (
-              <label key={slot.file} className="block cursor-pointer border border-dashed border-espresso/25 p-4 hover:border-bronze">
-                <span className="block font-sans text-sm font-semibold text-espresso">{slot.label}</span>
-                <span className="mt-1 block font-sans text-xs text-espresso/50">Tap to choose a photo</span>
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => { const f = e.target.files?.[0]; if (f) uploadPhoto(slot.file, f); e.target.value = ""; }}
-                />
-              </label>
-            ))}
+            {IMAGE_SLOTS.map((slot) => {
+              const state = slotState[slot.file];
+              return (
+                <label
+                  key={slot.file}
+                  className={`flex cursor-pointer items-center gap-3 border p-3 hover:border-bronze ${
+                    state === "Failed" ? "border-red-400" : "border-espresso/20"
+                  }`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`/images/${slot.file}?v=${stamp}`}
+                    alt=""
+                    className="h-16 w-16 shrink-0 bg-sand object-cover"
+                  />
+                  <span className="min-w-0">
+                    <span className="block font-sans text-sm font-semibold text-espresso">{slot.label}</span>
+                    <span
+                      className={`mt-0.5 block font-sans text-xs ${
+                        state === "Failed" ? "text-red-700" : state === "Uploaded" ? "text-green-700" : "text-espresso/50"
+                      }`}
+                    >
+                      {state || "Tap to choose a photo"}
+                    </span>
+                  </span>
+                  <input
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp,image/heic,image/heif,image/*"
+                    className="hidden"
+                    disabled={busy}
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) uploadPhoto(slot.file, f);
+                      e.target.value = "";
+                    }}
+                  />
+                </label>
+              );
+            })}
           </div>
         </section>
 
@@ -314,8 +388,12 @@ export default function AdminPage() {
       {/* save bar */}
       <div className="fixed inset-x-0 bottom-0 border-t border-espresso/10 bg-cream/95 backdrop-blur">
         <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-5 py-4">
-          <p className="font-sans text-sm text-espresso/70">
-            {error ? <span className="text-red-700">{error}</span> : status || "Changes aren't live until you save."}
+          <p className="max-w-lg font-sans text-sm text-espresso/70">
+            {error ? (
+              <span className="font-semibold text-red-700">{error}</span>
+            ) : (
+              status || "Changes aren't live until you save."
+            )}
           </p>
           <button onClick={save} disabled={busy} className="btn-solid disabled:opacity-50">
             {busy ? "Working..." : "Save changes"}
