@@ -284,46 +284,71 @@ export default function AdminPage() {
         <section className={card}>
           <h2 className={heading}>Photos</h2>
           <p className="mt-1 font-sans text-sm text-espresso/60">
-            Pick a photo from your phone. Sideways photos are straightened and large ones shrunk automatically.
+            Pick a photo from your phone. Sideways photos are straightened and large ones shrunk automatically. The wording under each gallery photo is what shows when someone hovers over it, so change it to match the photo. Wording changes need Save changes; photos upload straight away.
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             {IMAGE_SLOTS.map((slot) => {
               const state = slotState[slot.file];
+              // Gallery photos carry a caption; the hero and about photos don't.
+              const gi = content.gallery.items.findIndex((it) => it.image === `/images/${slot.file}`);
               return (
-                <label
+                <div
                   key={slot.file}
-                  className={`flex cursor-pointer items-center gap-3 border p-3 hover:border-bronze ${
-                    state === "Failed" ? "border-red-400" : "border-espresso/20"
-                  }`}
+                  className={`border p-3 ${state === "Failed" ? "border-red-400" : "border-espresso/20"}`}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`/images/${slot.file}?v=${stamp}`}
-                    alt=""
-                    className="h-16 w-16 shrink-0 bg-sand object-cover"
-                  />
-                  <span className="min-w-0">
-                    <span className="block font-sans text-sm font-semibold text-espresso">{slot.label}</span>
-                    <span
-                      className={`mt-0.5 block font-sans text-xs ${
-                        state === "Failed" ? "text-red-700" : state === "Uploaded" ? "text-green-700" : "text-espresso/50"
-                      }`}
-                    >
-                      {state || "Tap to choose a photo"}
+                  {/* Only this part opens the file chooser, so the caption box below stays clickable. */}
+                  <label className="flex cursor-pointer items-center gap-3 hover:opacity-80">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/images/${slot.file}?v=${stamp}`}
+                      alt=""
+                      className="h-16 w-16 shrink-0 bg-sand object-cover"
+                    />
+                    <span className="min-w-0">
+                      <span className="block font-sans text-sm font-semibold text-espresso">{slot.label}</span>
+                      <span
+                        className={`mt-0.5 block font-sans text-xs ${
+                          state === "Failed"
+                            ? "text-red-700"
+                            : state === "Uploaded"
+                              ? "text-green-700"
+                              : "text-espresso/50"
+                        }`}
+                      >
+                        {state || "Tap to choose a photo"}
+                      </span>
                     </span>
-                  </span>
-                  <input
-                    type="file"
-                    accept="image/*,.jpg,.jpeg,.png,.webp,.heic,.heif"
-                    className="hidden"
-                    disabled={busy}
-                    onChange={(e) => {
-                      const f = e.target.files?.[0];
-                      if (f) uploadPhoto(slot.file, f);
-                      e.target.value = "";
-                    }}
-                  />
-                </label>
+                    <input
+                      type="file"
+                      accept="image/*,.jpg,.jpeg,.png,.webp,.heic,.heif"
+                      className="hidden"
+                      disabled={busy}
+                      onChange={(e) => {
+                        const f = e.target.files?.[0];
+                        if (f) uploadPhoto(slot.file, f);
+                        e.target.value = "";
+                      }}
+                    />
+                  </label>
+
+                  {gi >= 0 && (
+                    <div className="mt-3">
+                      <span className="block font-sans text-xs text-espresso/60">
+                        Wording shown on this photo
+                      </span>
+                      <input
+                        value={content.gallery.items[gi].caption}
+                        onChange={(e) =>
+                          update((d) => {
+                            d.gallery.items[gi].caption = e.target.value;
+                          })
+                        }
+                        placeholder="e.g. Spray tan"
+                        className={`${field} mt-1`}
+                      />
+                    </div>
+                  )}
+                </div>
               );
             })}
           </div>
