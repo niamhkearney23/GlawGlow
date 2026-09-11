@@ -37,7 +37,8 @@
     "sub": "Professional spray tanning, lash lifts and brow styling by a qualified beauty therapist, in a private home studio in Blackburn, Melbourne.",
     "cta": "Book an appointment",
     "ctaSecondary": "View services",
-    "image": "/images/hero.jpg"
+    "image": "/images/hero.jpg",
+    "imagePosition": "right"
   },
   "ticker": [
     "Spray Tanning",

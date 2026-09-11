@@ -13,6 +13,8 @@ export type GalleryItem = { id: number; image: string; caption: string };
 export type Testimonial = { quote: string; name: string };
 export type NavLink = { label: string; href: string };
 export type Hours = { day: string; time: string };
+/** Which part of a wide photo stays in view when it is cropped. */
+export type ImagePosition = "left" | "center" | "right";
 export type CareColumn = { title: string; tips: string[] };
 
 export type SiteContent = {
@@ -24,7 +26,7 @@ export type SiteContent = {
   bookingUrl: string;
   bookingEmbedUrl: string;
   nav: { links: NavLink[]; cta: string };
-  hero: { eyebrow: string; headline: string; sub: string; cta: string; ctaSecondary: string; image: string };
+  hero: { eyebrow: string; headline: string; sub: string; cta: string; ctaSecondary: string; image: string; imagePosition?: ImagePosition };
   ticker: string[];
   services: { label: string; heading: string; intro: string; groups: ServiceGroup[] };
   about: { label: string; heading: string; body: string; points: string[]; cta: string; image: string };

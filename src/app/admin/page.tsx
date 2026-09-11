@@ -331,6 +331,33 @@ export default function AdminPage() {
                     />
                   </label>
 
+                  {slot.file === "hero.jpg" && (
+                    <div className="mt-3">
+                      <span className="block font-sans text-xs text-espresso/60">
+                        If the photo gets cut off, which side should stay in view?
+                      </span>
+                      <div className="mt-1 flex gap-2">
+                        {(["left", "center", "right"] as const).map((pos) => {
+                          const active = (content.hero.imagePosition ?? "center") === pos;
+                          return (
+                            <button
+                              key={pos}
+                              type="button"
+                              onClick={() => update((d) => { d.hero.imagePosition = pos; })}
+                              className={`flex-1 border px-2 py-1.5 font-sans text-xs ${
+                                active
+                                  ? "border-espresso bg-espresso text-cream"
+                                  : "border-espresso/20 text-espresso hover:border-bronze"
+                              }`}
+                            >
+                              {pos === "center" ? "Centre" : pos[0].toUpperCase() + pos.slice(1)}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
                   {gi >= 0 && (
                     <div className="mt-3">
                       <span className="block font-sans text-xs text-espresso/60">

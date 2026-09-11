@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import { siteConfig } from "@/config/content";
 import SmartImage from "./SmartImage";
 
+// Written out in full so Tailwind keeps these classes.
+const POSITION = { left: "object-left", center: "object-center", right: "object-right" } as const;
+
 const up = (d: number) => ({
   initial: { opacity: 0, y: 22 },
   animate: { opacity: 1, y: 0 },
@@ -33,7 +36,7 @@ export default function Hero() {
         animate={{ clipPath: "inset(0 0 0% 0)", scale: 1 }}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
       >
-        <SmartImage src={hero.image} label="Hero" alt={siteConfig.name} className="h-full w-full" imgClassName="grayscale" />
+        <SmartImage src={hero.image} label="Hero" alt={siteConfig.name} className="h-full w-full" imgClassName={POSITION[hero.imagePosition ?? "center"]} />
       </motion.div>
     </section>
   );
