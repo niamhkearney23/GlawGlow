@@ -4,8 +4,14 @@ import { motion } from "framer-motion";
 import { siteConfig } from "@/config/content";
 import SmartImage from "./SmartImage";
 
-// Written out in full so Tailwind keeps these classes.
-const POSITION = { left: "object-left", center: "object-center", right: "object-right" } as const;
+// Leans towards a side rather than pinning to its edge: on narrow phone
+// screens a hard edge cuts off a face that sits near that side. Written out in
+// full so Tailwind keeps these classes.
+const POSITION = {
+  left: "object-[30%_50%]",
+  center: "object-center",
+  right: "object-[70%_50%]",
+} as const;
 
 const up = (d: number) => ({
   initial: { opacity: 0, y: 22 },
