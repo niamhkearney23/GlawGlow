@@ -34,11 +34,11 @@
   "hero": {
     "eyebrow": "Spray Tanning · Lashes · Brows · Waxing",
     "headline": "Bronzed. Lifted.\nPolished.",
-    "sub": "Professional spray tanning, lash lifts and brow styling by a qualified beauty therapist, in a private home studio in Blackburn, Melbourne.",
+    "sub": "Professional  massages, spray tanning, lash lifts and brow styling by a qualified beauty therapist, in a private home studio in Blackburn, Melbourne.",
     "cta": "Book an appointment",
     "ctaSecondary": "View services",
     "image": "/images/hero.jpg",
-    "imagePosition": "right"
+    "imagePosition": "center"
   },
   "ticker": [
     "Spray Tanning",
@@ -109,7 +109,7 @@
   "about": {
     "label": "About",
     "heading": "A private studio,\nrun by your artist",
-    "body": "Glam & Glow is owned and run by Elissa Colafella, a qualified beauty therapist. Appointments are one client at a time in a calm, private studio. No waiting rooms, no rushing. Every tan is colour matched to your skin tone and every brow is shaped to your face.",
+    "body": "Glam & Glow is owned and run by Elissa Colafella, a qualified beauty therapist. Appointments are one client at a time in a calm, private studio. No waiting rooms, no rushing. Every tan is colour matched to your skin tone, every massages is custom to you and every brow is shaped to your face.",
     "points": [
       "Qualified beauty therapist",
       "Premium, vegan tanning solutions",
@@ -194,16 +194,16 @@
   "footer": {
     "hours": [
       {
-        "day": "Tuesday – Friday",
-        "time": "10:00am – 6:00pm"
+        "day": "Monday – Friday",
+        "time": "6:00pm - 9:00pm"
       },
       {
         "day": "Saturday",
         "time": "9:00am – 4:00pm"
       },
       {
-        "day": "Sunday – Monday",
-        "time": "By appointment"
+        "day": "Sunday ",
+        "time": "9:00am - 4:00pm"
       }
     ]
   }
