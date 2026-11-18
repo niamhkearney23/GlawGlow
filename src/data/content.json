@@ -59,7 +59,7 @@
           {
             "name": "Spray AUS tan",
             "desc": "Hand applied and colour matched to your skin tone.",
-            "time": "",
+            "time": "15min",
             "price": "$45"
           }
         ]
@@ -152,7 +152,7 @@
       {
         "id": 5,
         "image": "/images/gallery-5.jpg",
-        "caption": "Brow wax"
+        "caption": "Massage "
       },
       {
         "id": 6,
