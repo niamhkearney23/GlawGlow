@@ -65,7 +65,7 @@
         ]
       },
       {
-        "title": "Lashes & Brows",
+        "title": "Lashes, Brows & Waxing ",
         "items": [
           {
             "name": "Lash lift",
@@ -90,22 +90,22 @@
             "desc": "Colour matched for fuller looking brows.",
             "time": "",
             "price": "$15"
-          }
-        ]
-      },
-      {
-        "title": "Waxing",
-        "items": [
+          },
           {
             "name": "Upper lip wax",
             "desc": "",
             "time": "",
             "price": "$15"
-          },
+          }
+        ]
+      },
+      {
+        "title": "Massages",
+        "items": [
           {
-            "name": "Massage ",
-            "desc": "Massage custom to you. ",
-            "time": "45 min",
+            "name": "Glow Relax Massage",
+            "desc": "Massage custom to you",
+            "time": "45min",
             "price": "$60"
           }
         ]
