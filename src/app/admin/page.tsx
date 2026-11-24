@@ -269,6 +269,61 @@ export default function AdminPage() {
           ))}
         </section>
 
+        {/* CATEGORIES ON THE HERO */}
+        <section className={card}>
+          <h2 className={heading}>Categories at the top of the page</h2>
+          <p className="mt-1 font-sans text-sm text-espresso/60">
+            Adding a category to the price list above does not put it up here, because these two
+            spots are worded separately. If you add a new category, add it here too.
+          </p>
+
+          <label className="mt-5 block font-sans text-xs uppercase tracking-widest text-espresso/50">
+            Small line above the big headline
+          </label>
+          <input
+            value={content.hero.eyebrow}
+            onChange={(e) => update((d) => { d.hero.eyebrow = e.target.value; })}
+            placeholder="Spray Tanning &middot; Lashes &middot; Brows &middot; Massage"
+            className={field}
+          />
+          <p className="mt-1 font-sans text-xs text-espresso/50">
+            Separate them with a dot, like Spray Tanning &middot; Lashes &middot; Brows.
+          </p>
+
+          <label className="mt-6 block font-sans text-xs uppercase tracking-widest text-espresso/50">
+            Scrolling strip under the photo
+          </label>
+          <p className="mt-1 font-sans text-xs text-espresso/50">
+            One per box. The last one is usually your location.
+          </p>
+          <div className="mt-3 space-y-2">
+            {content.ticker.map((word, i) => (
+              <div key={i} className="flex gap-2">
+                <input
+                  value={word}
+                  onChange={(e) => update((d) => { d.ticker[i] = e.target.value; })}
+                  placeholder="e.g. Massage"
+                  className={field}
+                />
+                <button
+                  type="button"
+                  onClick={() => update((d) => { d.ticker.splice(i, 1); })}
+                  className="shrink-0 border border-espresso/20 px-3 font-sans text-xs text-espresso/60 hover:border-red-400 hover:text-red-700"
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => update((d) => { d.ticker.push(""); })}
+            className="mt-3 border border-espresso/25 px-4 py-2 font-sans text-xs uppercase tracking-widest text-espresso hover:border-bronze"
+          >
+            Add another
+          </button>
+        </section>
+
         {/* HOURS */}
         <section className={card}>
           <h2 className={heading}>Opening hours</h2>

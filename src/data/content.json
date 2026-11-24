@@ -32,7 +32,7 @@
     "cta": "Book"
   },
   "hero": {
-    "eyebrow": "Spray Tanning · Lashes · Brows · Waxing",
+    "eyebrow": "Spray Tanning · Lashes · Brows · Waxing · Massage",
     "headline": "Bronzed. Relaxed.\nPolished.",
     "sub": "Professional  massages, spray tanning, lash lifts and brow styling by a qualified beauty therapist, in a private home studio in Blackburn, Melbourne.",
     "cta": "Book an appointment",
@@ -46,6 +46,7 @@
     "Brow Shaping",
     "Brow Tint",
     "Waxing",
+    "Massage",
     "Blackburn, Melbourne"
   ],
   "services": {
